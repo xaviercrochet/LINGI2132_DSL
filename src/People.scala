@@ -1,5 +1,7 @@
 class People(val name: String, val m: SimModel, var facebook: Boolean) {
   
+  var facebookProfile : FacebookProfile = new FacebookProfile(this)
+    
   def idle() {
     println(name +" is idle.")
     var r = new scala.util.Random()
@@ -19,17 +21,11 @@ class People(val name: String, val m: SimModel, var facebook: Boolean) {
   def joinFacebook() {
     println(name + " has join Facebook")
     facebook = true
-    m.wait(20.0) {
-      idle()
-    }
   }
   
   def leaveFacebook() {
     println(name + " has left Facebook")
     facebook = false
-    m.wait(20.0) {
-      idle()
-    }
   }
   
   def readFacebookInvitation() {
@@ -40,10 +36,5 @@ class People(val name: String, val m: SimModel, var facebook: Boolean) {
     }
     else
       println(name + " has refused Facebook's invitation! ")
-    
-    m.wait(20.0) {
-      idle()
-    }
   }
-
 }

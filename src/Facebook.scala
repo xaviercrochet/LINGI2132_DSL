@@ -1,12 +1,13 @@
 class Facebook(val m:SimModel, val population: List[People])
 {
+  
   def idle() {
-    for (p <- population; if p.facebook == false)
+    /*for (p <- population; if p.facebook == false)
       invite(p)
   
     m.wait(5.0) {
       idle()
-    }
+    }*/
 
   }
 
