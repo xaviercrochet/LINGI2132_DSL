@@ -1,7 +1,8 @@
 class People(val name: String, val m: SimModel, var facebook: Boolean) {
   
   var facebookProfile : FacebookProfile = new FacebookProfile(this)
-    
+  var facebookInvitations = List[FacebookInvitation]()  
+  
   def idle() {
     println(name +" is idle.")
     var r = new scala.util.Random()
