@@ -1,0 +1,2 @@
+class FacebookPicture(f: FacebookProfile) {
+}
