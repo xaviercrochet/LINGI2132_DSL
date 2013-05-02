@@ -3,16 +3,17 @@ import scala.collection.mutable.ListBuffer
 
 object PeopleManager {
 
-	def createPeople(nbPeople: Int, m: SimModel, o: Observer): ListBuffer[People] = {
+	def createPeople(nbPeople: Int, nbSub: Int, m: SimModel, o: Observer): ListBuffer[People] = {
 
 		var population = new ListBuffer[People]()
+		var nbSubVar = nbSub
 
 		// People creation
 		for(i <- 0 until nbPeople) {
 
-			val onePeople = new People("MyName"+i, o, m, false)
+			val onePeople = new People("MyName"+i, o, m, nbSubVar > 0 )
 			population += onePeople
-
+			nbSubVar -= 1
 		}
 
 		// Link between people

@@ -4,7 +4,7 @@ object App {
   def main(args: Array[String]): Unit = {
     val model = new SimModel()
     val observer = new Observer()
-    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(10, model, observer)
+    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(10, 3, model, observer)
     println(listOfPeople)
 
     listOfPeople.foreach { one: People => 
