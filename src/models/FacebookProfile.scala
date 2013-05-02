@@ -1,10 +1,12 @@
+import scala.collection.mutable.ListBuffer
+
 class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   
-  var friends = List[FacebookProfile]()
-  var invitations = List[FacebookProfile]()
-  var posts = List[FacebookPost]()
-  var message = List[String]()
-  var pictures = List[FacebookPicture]()
+  var friends = ListBuffer[FacebookProfile]()
+  var invitations = ListBuffer[FacebookProfile]()
+  var posts = ListBuffer[FacebookPost]()
+  var message = ListBuffer[String]()
+  var pictures = ListBuffer[FacebookPicture]()
 
   
   def idle() {
@@ -30,13 +32,13 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def askFriend(f: FacebookProfile)
   {
     println(p.name + " asks " + f.p.name + " to become his friend")
-    f.invitations :+ f
+    f.invitations += f
   }
 
   def acceptFriend(f: FacebookProfile)
   {
     println(p.name + " accepts " + f.p.name + " friend request")
-    friends :+ f.p
+    friends += f
     invitations = invitations.filter(_ != f)
   }
 
@@ -56,6 +58,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   {
     println(p.name + " sent " + m + " to " + f.p.name)
     f.readMessage(f, m)
+    o.notifyFacebookMessage(this, f, m)
   }
   
   def readMessage(f: FacebookProfile, m:String)
@@ -73,12 +76,14 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def post(s: String)
   {
     println(p.name + " add a new post")
-    posts :+ new FacebookPost(this, s)
+    val post = new FacebookPost(this, s)
+    posts += post
+    o.notifyFacebookPost(this, post, friends) 
   }
 
   def uploadPicture()
   {
     println(p.name + " upload a new picture")
-    pictures :+ new FacebookPicture(this)
+    pictures += new FacebookPicture(this)
   }
 }
