@@ -17,6 +17,10 @@ object App {
 
     var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(4, model)
     println(listOfPeople)
+
+    listOfPeople.foreach { one: People => 
+        println(one.name + " is linked to " + one.circle)
+    }
   }
 
   def scenario_1(model: SimModel)
