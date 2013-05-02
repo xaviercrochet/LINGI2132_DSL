@@ -3,6 +3,9 @@ import scala.collection.mutable.ListBuffer
 
 class Observer()
 {
+
+  var nbSubscriber = 0
+
   def notifyFacebookInvitation(p: People) {
     if(p.facebookInvitations.size == 3)
       p.joinFacebook()
@@ -28,4 +31,11 @@ class Observer()
       receiver.refuseFriend(sender)
   }
 
+  def notifyJoin() {
+  	nbSubscriber += 1
+  }
+
+  def notifyLeave() {
+  	nbSubscriber -= 1
+  }
 }
