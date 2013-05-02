@@ -11,7 +11,7 @@ object App {
     val observer = new Observer()
     observer.nbSubscriber = nbSub
 
-    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, model, observer)
+    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, 7, 77, model, observer)
     println(listOfPeople)
 
     listOfPeople.foreach { one: People => 
