@@ -19,9 +19,11 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
         if(s.videos.length > 0)
           commentVideo(s.videos(Random.nextInt(s.videos.length)))
       }
-      if(Random.nextInt() %5 == 0 && p.circle.length > 0) {
+      if(Random.nextInt() %5 == 0) { 
+        for(people <- p.circle; if (people.youtube && !subscriptions.exists(x => x == people.youtubeProfile))) {
         // Subscribe to a random circle member
-        subscribe(p.circle(Random.nextInt(p.circle.length )).youtubeProfile)
+          subscribe(people.youtubeProfile)
+        }
       }
       if(Random.nextInt()%5 == 0 && subscriptions.length > 0) {
         //unsubscribe from a random subscription
@@ -63,4 +65,9 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
     v.comments += new YoutubeVideoComment(this, v)
   }
 
+  def invite(pp: People)
+  {
+    println(p + " invites "+pp+" to join YouTube")
+    pp.youtubeInvitations += new YoutubeInvitation(pp)
+  }
 }

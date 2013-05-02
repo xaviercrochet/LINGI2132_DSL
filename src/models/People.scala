@@ -1,10 +1,13 @@
 import scala.collection.mutable.ListBuffer
 
-class People(val name: String, val o: Observer, val m: SimModel, var facebook: Boolean, var youtube: Boolean) {
+class People(val name: String, val o: Observer, val m: SimModel, var facebook: Boolean, var youtube: Boolean, var twitter: Boolean) {
   
-  var facebookProfile : FacebookProfile = new FacebookProfile(m, o, this)
+  var facebookProfile = new FacebookProfile(m, o, this)
   var facebookInvitations  = new ListBuffer[FacebookInvitation]()
-  var youtubeProfile : YoutubeProfile = new YoutubeProfile(m, o, this)
+  var twitterInvitations = new ListBuffer[TwitterInvitation]()
+  var youtubeInvitations = new ListBuffer[YoutubeInvitation]() 
+  var youtubeProfile = new YoutubeProfile(m, o, this)
+  var twitterProfile = new TwitterProfile(m, o, this)
   var circle: ListBuffer[People] = _
   
   def run() {
@@ -12,6 +15,8 @@ class People(val name: String, val o: Observer, val m: SimModel, var facebook: B
       facebookProfile.idle()
     if(youtube)
       youtubeProfile.idle()
+    if(twitter)
+      twitterProfile.idle()
   }
   
   def joinFacebook() {
@@ -24,6 +29,16 @@ class People(val name: String, val o: Observer, val m: SimModel, var facebook: B
     println(name + " has left Facebook")
     facebook = false
     o.notifyFacebookLeave()
+  }
+
+  def joinTwitter() {
+    println(name + " has join Twitter")
+    twitter = true
+  }
+
+  def leaveTwitter() {
+    println(name + " has left Twitter")
+    twitter = false
   }
 
   def joinYoutube() {
