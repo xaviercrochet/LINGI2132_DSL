@@ -9,7 +9,8 @@ object App {
 
     val model = new SimModel()
     val observer = new Observer()
-    observer.nbSubscriber = nbSub
+    //observer.nbSubscriber = nbSub
+    Facebook.nbSubscriber = nbSub
 
     var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, 7, 77, model, observer)
     println(listOfPeople)
