@@ -19,4 +19,13 @@ class Observer()
     // do some stuff
   }
 
+  def notifyFacebookInvitation(sender: FacebookProfile, receiver: FacebookProfile)
+  {
+    val r = new Random()
+    if(r.nextInt() %2 == 0)
+      receiver.acceptFriend(sender)
+    else
+      receiver.refuseFriend(sender)
+  }
+
 }

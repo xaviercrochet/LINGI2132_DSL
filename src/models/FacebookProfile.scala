@@ -12,7 +12,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def idle() {
       var r = new scala.util.Random
       for (people <- p.circle) {
-        if (people.facebook)
+        if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
           askFriend(people.facebookProfile)
         
         else
@@ -33,6 +33,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   {
     println(p.name + " asks " + f.p.name + " to become his friend")
     f.invitations += f
+    o.notifyFacebookInvitation(this, f)
   }
 
   def acceptFriend(f: FacebookProfile)
