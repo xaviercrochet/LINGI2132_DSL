@@ -6,10 +6,17 @@ class Observer()
 
   var nbSubscriber = 0
 
+  var fbInvitationsObs = ListBuffer[Scenario]()
+  //var fbMessageObs: ListBuffer[Scenario] = _
+
   def notifyFacebookInvitation(p: People) {
-    if(p.facebookInvitations.size == 3)
-      p.joinFacebook()
+
+    fbInvitationsObs.foreach { obs =>
+    	obs.notifySc(p)
+    }
+
   }
+  
   def notifyFacebookMessage(sender: FacebookProfile, receiver: FacebookProfile, m: String)
   {
     val r = new Random()

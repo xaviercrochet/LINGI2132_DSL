@@ -20,9 +20,12 @@ object App {
 
     val facebook = new Facebook(model, observer, listOfPeople)
 
+    // Scenario
+    Scenario1(observer)
+
     println("--- Nombre inscrit before : " + observer.nbSubscriber)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(20)
+    model.simulate(2)
     println("--- Nombre inscrit after : " + observer.nbSubscriber)
     
   }

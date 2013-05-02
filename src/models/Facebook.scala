@@ -7,4 +7,6 @@ class Facebook(val m:SimModel, val o: Observer, val population: ListBuffer[Peopl
     p.facebookInvitations += new FacebookInvitation(p)
     o.notifyFacebookInvitation(p)
   }
+
+
 }
