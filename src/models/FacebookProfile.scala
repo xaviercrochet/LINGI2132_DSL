@@ -19,8 +19,8 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
           sendFacebookInvitation(people)
       }
       
-      for (friend <-friends)
-        sendMessage(friend, "Message"+Random.nextInt(friends.length))
+      if(Random.nextInt() %5 == 0 && friends.length > 0)
+        sendMessage(friends(Random.nextInt(friends.length)), "Message"+Random.nextInt(friends.length))
 
       post(Random.nextString(20))
       uploadPicture()
