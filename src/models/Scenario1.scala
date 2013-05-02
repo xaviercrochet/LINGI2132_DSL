@@ -3,7 +3,6 @@ class Scenario1 extends Scenario {
 	//override def notifySc
 
 	override def notifySc(p: People) {
-		//println("Scenario1 activated !")
 
 		// If 3 invitations received, the people join Facebook
 		if(p.facebookInvitations.size == 3) {

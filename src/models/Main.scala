@@ -9,7 +9,8 @@ object App {
 
     val model = new SimModel()
     val observer = new Observer()
-    observer.nbSubscriber = nbSub
+    //observer.nbSubscriber = nbSub
+    Facebook.nbSubscriber = nbSub
 
     var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, 7, 77, model, observer)
     println(listOfPeople)
@@ -18,15 +19,15 @@ object App {
         println(one.name + " is linked to " + one.circle)
     }
 
-    val facebook = new Facebook(model, observer, listOfPeople)
+    //val facebook = new Facebook(model, observer, listOfPeople)
 
     // Scenario
     Scenario1(observer)
 
-    println("--- Nombre inscrit before : " + observer.nbSubscriber)
+    println("--- Nombre inscrit before : " + Facebook.nbSubscriber)
     PeopleManager.activatePeople(listOfPeople)
     model.simulate(2)
-    println("--- Nombre inscrit after : " + observer.nbSubscriber)
+    println("--- Nombre inscrit after : " + Facebook.nbSubscriber)
     
   }
 }
