@@ -1,4 +1,5 @@
 import scala.collection.mutable.ListBuffer
+import scala.util.Random
 
 class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   
@@ -10,7 +11,6 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
 
   
   def idle() {
-      var r = new scala.util.Random
       for (people <- p.circle) {
         if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
           askFriend(people.facebookProfile)
@@ -20,9 +20,9 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
       }
       
       for (friend <-friends)
-        sendMessage(friend, r.nextString(8))
+        sendMessage(friend, "Message"+Random.nextInt(friends.length))
 
-      post(r.nextString(20))
+      post(Random.nextString(20))
       uploadPicture()
       m.wait(1.0) {
         idle()
