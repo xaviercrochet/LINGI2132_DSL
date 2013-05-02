@@ -15,7 +15,7 @@ object App {
 
     println("------")
 
-    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(4, model)
+    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(10, model)
     println(listOfPeople)
 
     listOfPeople.foreach { one: People => 

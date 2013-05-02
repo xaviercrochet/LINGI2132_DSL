@@ -22,7 +22,7 @@ object PeopleManager {
 			var populationCopy = population - onePeople
 
 			// Take randomly 3 people from the population
-			onePeople.circle = Random.shuffle(populationCopy) take 3
+			onePeople.circle = Random.shuffle(populationCopy) take Random.nextInt(population.length)
 		}
 
 		population
