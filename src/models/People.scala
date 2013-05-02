@@ -26,6 +26,16 @@ class People(val name: String, val o: Observer, val m: SimModel, var facebook: B
     o.notifyLeave()
   }
 
+  def joinYoutube() {
+    println(name + " has join Youtube")
+    youtube = true
+  }
+
+  def leaveYoutube() {
+    println(name + " has left Youtube")
+    youtube = false
+  }
+
   override def toString() = {
     name
   }
