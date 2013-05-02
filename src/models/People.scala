@@ -12,4 +12,8 @@ class People(val name: String, val m: SimModel, var facebook: Boolean) {
     println(name + " has left Facebook")
     facebook = false
   }
+
+  override def toString() = {
+    name
+  }
 }

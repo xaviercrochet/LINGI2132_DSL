@@ -1,3 +1,5 @@
+import scala.collection.mutable.ListBuffer
+
 object App {
   def main(args: Array[String]): Unit = {
     val model = new SimModel()
@@ -10,6 +12,11 @@ object App {
     facebook.idle()
     model.simulate(100)*/
     scenario_1(model)
+
+    println("------")
+
+    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(4, model)
+    println(listOfPeople)
   }
 
   def scenario_1(model: SimModel)
