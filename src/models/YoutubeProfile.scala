@@ -9,22 +9,23 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   def idle() {
     if(p.youtube) {
       addVideo()
-      if(Random.nextInt() % 5 == 0) {
+      if(Random.nextInt() % 5 == 0 && videos.length > 0) {
         // remove a random video
-        videos -= videos(Random.nextInt(videos.length -1))
+        videos -= videos(Random.nextInt(videos.length ))
       }
-      if(Random.nextInt() % 5 == 0) {
+      if(Random.nextInt() % 5 == 0 && subscriptions.length > 0 ) {
         /// comment a random video from our subscribtions
-        var s = subscriptions(Random.nextInt(subscriptions.length - 1))
-        commentVideo(s.videos(Random.nextInt(s.videos.length-1)))
+        var s = subscriptions(Random.nextInt(subscriptions.length ))
+        if(s.videos.length > 0)
+          commentVideo(s.videos(Random.nextInt(s.videos.length)))
       }
-      if(Random.nextInt() %5 == 0) {
+      if(Random.nextInt() %5 == 0 && p.circle.length > 0) {
         // Subscribe to a random circle member
-        subscribe(p.circle(Random.nextInt(p.circle.length - 1)).youtubeProfile)
+        subscribe(p.circle(Random.nextInt(p.circle.length )).youtubeProfile)
       }
-      if(Random.nextInt()%5 == 0) {
+      if(Random.nextInt()%5 == 0 && subscriptions.length > 0) {
         //unsubscribe from a random subscription
-        unsuscribe(subscriptions(Random.nextInt(subscriptions.length - 1)))
+        unsuscribe(subscriptions(Random.nextInt(subscriptions.length )))
       }
       m.wait(5.0) {
         idle()
