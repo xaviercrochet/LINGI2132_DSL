@@ -31,11 +31,11 @@ class Observer()
       receiver.refuseFriend(sender)
   }
 
-  def notifyJoin() {
+  def notifyFacebookJoin() {
   	nbSubscriber += 1
   }
 
-  def notifyLeave() {
+  def notifyFacebookLeave() {
   	nbSubscriber -= 1
   }
 }

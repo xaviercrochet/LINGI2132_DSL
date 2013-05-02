@@ -17,13 +17,13 @@ class People(val name: String, val o: Observer, val m: SimModel, var facebook: B
   def joinFacebook() {
     println(name + " has join Facebook")
     facebook = true
-    o.notifyJoin()
+    o.notifyFacebookJoin()
   }
   
   def leaveFacebook() {
     println(name + " has left Facebook")
     facebook = false
-    o.notifyLeave()
+    o.notifyFacebookLeave()
   }
 
   def joinYoutube() {
