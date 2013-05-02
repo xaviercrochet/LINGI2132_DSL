@@ -1,10 +1,31 @@
-class FacebookProfile(val p: People) {
+class FacebookProfile(m: SimModel, val p: People) {
   
-  var friends = List[People]()
+  var friends = List[FacebookProfile]()
   var invitations = List[FacebookProfile]()
   var posts = List[FacebookPost]()
   var message = List[String]()
   var pictures = List[FacebookPicture]()
+
+  
+  def idle() {
+      var r = new scala.util.Random
+      for (people <- p.circle) {
+        if (people.facebook)
+          askFriend(people.facebookProfile)
+        
+        else
+          sendFacebookInvitation(people)
+      }
+      
+      for (friend <-friends)
+        sendMessage(friend, r.nextString(8))
+
+      post(r.nextString(20))
+      uploadPicture()
+      m.wait(5.0) {
+        idle()
+      }
+  }
 
   def askFriend(f: FacebookProfile)
   {
@@ -48,10 +69,10 @@ class FacebookProfile(val p: People) {
     pp.facebookInvitations :+ new FacebookInvitation(pp)
   }
 
-  def post()
+  def post(s: String)
   {
     println(p.name + " add a new post")
-    posts :+ new FacebookPost(this, "blah")
+    posts :+ new FacebookPost(this, s)
   }
 
   def uploadPicture()
