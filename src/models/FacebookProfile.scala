@@ -49,7 +49,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def deleteFriend(f: FacebookProfile)
   {
     println(p.name + " delete " + f.p.name + " from his friends")
-    friends = friends.filter(_ != f.p)
+    friends = friends.filter(_ != f)
   }
   
   def sendMessage(f: FacebookProfile, m: String)
