@@ -3,14 +3,14 @@ import scala.collection.mutable.ListBuffer
 
 object PeopleManager {
 
-	def createPeople(nbPeople: Int, m: SimModel): ListBuffer[People] = {
+	def createPeople(nbPeople: Int, m: SimModel, o: Observer): ListBuffer[People] = {
 
 		var population = new ListBuffer[People]()
 
 		// People creation
 		for(i <- 0 until nbPeople) {
 
-			val onePeople = new People("MyName"+i, m, false)
+			val onePeople = new People("MyName"+i, o, m, false)
 			population += onePeople
 
 		}
@@ -27,4 +27,9 @@ object PeopleManager {
 
 		population
 	}
+
+  def activatePeople(listOfPeople: ListBuffer[People]) {
+    for (p <- listOfPeople)
+      p.run()
+  }
 }

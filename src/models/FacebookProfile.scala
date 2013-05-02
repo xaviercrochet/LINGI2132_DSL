@@ -1,4 +1,4 @@
-class FacebookProfile(m: SimModel, val p: People) {
+class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   
   var friends = List[FacebookProfile]()
   var invitations = List[FacebookProfile]()
@@ -22,7 +22,7 @@ class FacebookProfile(m: SimModel, val p: People) {
 
       post(r.nextString(20))
       uploadPicture()
-      m.wait(5.0) {
+      m.wait(1.0) {
         idle()
       }
   }
@@ -66,7 +66,8 @@ class FacebookProfile(m: SimModel, val p: People) {
   def sendFacebookInvitation(pp: People)
   {
     println(p.name + " ask " + pp.name + " to join facebook")
-    pp.facebookInvitations :+ new FacebookInvitation(pp)
+    pp.facebookInvitations += new FacebookInvitation(pp)
+    o.notifyFacebookInvitation(pp)
   }
 
   def post(s: String)
