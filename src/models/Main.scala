@@ -12,6 +12,7 @@ object App {
     }
     val facebook = new Facebook(model, observer, listOfPeople)
     PeopleManager.activatePeople(listOfPeople)
+    model.simulate(100)
     
   }
 }
