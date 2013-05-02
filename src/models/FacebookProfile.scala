@@ -40,19 +40,19 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   {
     println(p.name + " accepts " + f.p.name + " friend request")
     friends += f
-    invitations = invitations.filter(_ != f)
+    invitations -= f
   }
 
   def refuseFriend(f: FacebookProfile)
   {
     println(p.name + " refuses " + f.p.name + " friend request")
-    invitations = invitations.filter(_ != f)
+    invitations -= f
   }
 
   def deleteFriend(f: FacebookProfile)
   {
     println(p.name + " delete " + f.p.name + " from his friends")
-    friends = friends.filter(_ != f)
+    friends -= f
   }
   
   def sendMessage(f: FacebookProfile, m: String)
