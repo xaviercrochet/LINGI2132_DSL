@@ -7,7 +7,8 @@ class People(val name: String, val o: Observer, val m: SimModel, var facebook: B
   var circle: ListBuffer[People] = _
   
   def run() {
-    facebookProfile.idle()
+    if(facebook)
+      facebookProfile.idle()
   }
   
   def joinFacebook() {

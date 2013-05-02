@@ -11,7 +11,6 @@ object App {
         println(one.name + " is linked to " + one.circle)
     }
     val facebook = new Facebook(model, observer, listOfPeople)
-    facebook.run()
     PeopleManager.activatePeople(listOfPeople)
     
   }
