@@ -39,10 +39,10 @@ class Observer()
   }
 
   def notifyFacebookJoin() {
-  	nbSubscriber += 1
+  	Facebook.nbSubscriber += 1
   }
 
   def notifyFacebookLeave() {
-  	nbSubscriber -= 1
+  	Facebook.nbSubscriber -= 1
   }
 }
