@@ -16,9 +16,12 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
   def run() {
       // Run the people's social network profiles
     println("Running: "+name)
-    facebookProfile.run()
-    youtubeProfile.run()
-    twitterProfile.run()
+    if(facebook)
+      facebookProfile.run()
+    if(youtube)
+      youtubeProfile.run()
+    if(twitter)
+      twitterProfile.run()
     m.wait(5.0) {
       run()
     }
