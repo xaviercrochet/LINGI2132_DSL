@@ -32,7 +32,9 @@ object PeopleManager {
 	}
 
   def activatePeople(listOfPeople: ListBuffer[People]) {
-    for (p <- listOfPeople)
+    for (p <- listOfPeople) {
+      println("Activating: "+ p)
       p.run()
+    }
   }
 }
