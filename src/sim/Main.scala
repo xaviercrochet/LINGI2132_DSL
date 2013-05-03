@@ -21,6 +21,8 @@ object App {
 
     Facebook count (5. percent_of globalPopulation)
     Twitter coun (10. percent_of globalPopulation)
+
+    simulate_for 30.days
     */
 
     val model = new SimModel()
