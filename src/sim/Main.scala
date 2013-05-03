@@ -13,11 +13,14 @@ object App {
     /*
     val globalPopulation = rules { population =>
         
-        population count (25.millions student)
-        population count (30.millions middle_age)
-        population count (10.millions teenager)
+        population is_composed_by (25.millions student)
+        population is_composed_by (30.millions middle_age)
+        population is_composed_by (10.millions teenager)
 
     }
+
+    Facebook count (5. percent_of globalPopulation)
+    Twitter coun (10. percent_of globalPopulation)
     */
 
     val model = new SimModel()
