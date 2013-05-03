@@ -20,8 +20,6 @@ object App {
         println(one.name + " is linked to " + one.circle)
     }
 
-    //val facebook = new Facebook(model, observer, listOfPeople)
-
     // Scenario
     Scenario1(observer)
 
