@@ -1,4 +1,5 @@
 *******COMPILATION(Pour Julien le noob)*****
+(Delete allt he binaries file in bin/ : rm -rf bin/*)
 scalac src/*.scala src/*/*.scala -d bin/
 *******EXECUTION****
 cd bin/
