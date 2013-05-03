@@ -12,12 +12,24 @@ object App {
 
     /*
     val globalPopulation = rules { population =>
-        
-        population is_composed_by (25.millions student)
-        population is_composed_by (30.millions middle_age)
-        population is_composed_by (10.millions teenager)
 
+        population composed_by 5.millions with_profile { people =>
+            
+            students    represent (25. percent_of people)
+            middle_ages represent (50. percent_of people)
+            teenagers   represent (25. percent_of people)
+        }
     }
+    */
+
+    /*
+    //val globalPopulation = rules { population =>
+        
+        Population is_composed_by (25.millions student)
+        Population is_composed_by (30.millions middle_age)
+        Population is_composed_by (10.millions teenager)
+
+    //}
 
     Facebook count (5. percent_of globalPopulation)
     Twitter coun (10. percent_of globalPopulation)

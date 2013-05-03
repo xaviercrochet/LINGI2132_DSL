@@ -1,6 +1,6 @@
 object rules {
 	
-	def apply(rules: Population => ) {
+	/*def apply(rules: Population => ) {
 
-	}
+	}*/
 }
