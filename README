@@ -2,5 +2,5 @@
 scalac src/*.scala src/*/*.scala -d bin/
 *******EXECUTION****
 cd bin/
-scala App
+scala sim.App
 ****************
