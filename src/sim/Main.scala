@@ -1,4 +1,7 @@
+package sim
 import scala.collection.mutable.ListBuffer
+import sim.models._
+import sim.scenario._
 
 object App {
   def main(args: Array[String]): Unit = {
@@ -9,8 +12,6 @@ object App {
 
     val model = new SimModel()
     val observer = new Observer()
-    //observer.nbSubscriber = nbSub
-    Facebook.nbSubscriber = nbSub
 
     var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, 7, 77, model, observer)
     println(listOfPeople)

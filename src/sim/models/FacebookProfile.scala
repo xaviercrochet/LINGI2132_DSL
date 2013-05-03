@@ -1,5 +1,7 @@
+package sim.models
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
+import sim._
 
 class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   

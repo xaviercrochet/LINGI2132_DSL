@@ -1,3 +1,4 @@
+package sim
 import scala.collection.mutable.PriorityQueue
 
 class SimModel {

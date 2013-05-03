@@ -1,5 +1,8 @@
+package sim
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
+import sim.models._
+import sim.scenario._
 
 class Observer()
 {

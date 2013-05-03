@@ -1,3 +1,7 @@
+package sim.scenario
+import sim.models._
+import sim._
+
 class Scenario1 extends Scenario {
 
 	//override def notifySc

@@ -1,5 +1,7 @@
+package sim
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
+import sim.models._
 
 object PeopleManager {
 

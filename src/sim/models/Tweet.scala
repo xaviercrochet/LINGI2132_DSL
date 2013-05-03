@@ -1,3 +1,4 @@
+package sim.models
 import scala.collection.mutable.ListBuffer
 
 class Tweet(var t: TwitterProfile){
