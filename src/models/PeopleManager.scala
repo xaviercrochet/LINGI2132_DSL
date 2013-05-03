@@ -11,7 +11,7 @@ object PeopleManager {
 		// People creation
 		for(i <- 0 until nbPeople) {
 
-      val onePeople = new People("MyName"+i, o, m, minAge+Random.nextInt(maxAge-minAge), Random.nextBoolean(), nbSubVar > 0 , nbSubVar >0, nbSubVar > 0)
+      	val onePeople = new People("MyName"+i, o, m, minAge+Random.nextInt(maxAge-minAge), Random.nextBoolean(), nbSubVar > 0 , nbSubVar >0, nbSubVar > 0)
 			population += onePeople
 			nbSubVar -= 1
 		}

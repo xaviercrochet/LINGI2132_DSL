@@ -2,6 +2,7 @@ import scala.collection.mutable.ListBuffer
 
 class People(val name: String, val o: Observer, val m: SimModel, var age: Int, var sex: Boolean, var facebook: Boolean, var youtube: Boolean, var twitter: Boolean) {
   
+  // People's data
   var facebookProfile = new FacebookProfile(m, o, this)
   var facebookInvitations  = new ListBuffer[FacebookInvitation]()
   var twitterInvitations = new ListBuffer[TwitterInvitation]()
@@ -11,14 +12,14 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
   var circle: ListBuffer[People] = _
   
   def run() {
-    //if(facebook)
+
+      // Run the people's social network profiles
       facebookProfile.idle()
-    //if(youtube)
       youtubeProfile.idle()
-    //if(twitter)
       twitterProfile.idle()
   }
   
+  // Facebook's actions
   def joinFacebook() {
     println(name + " has join Facebook")
     facebook = true
@@ -31,6 +32,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
     o.notifyFacebookLeave()
   }
 
+  // Twitter's actions
   def joinTwitter() {
     println(name + " has join Twitter")
     twitter = true
@@ -41,6 +43,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
     twitter = false
   }
 
+  // YouTube's actions
   def joinYoutube() {
     println(name + " has join Youtube")
     youtube = true

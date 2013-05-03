@@ -8,7 +8,7 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
 
   
   def idle() {
-    if (p.twitter) {
+    if (p.twitter) { // Run the profile only if the people have a account
       tweet()
       // follow a random circle member
       for (people <- p.circle; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
@@ -23,6 +23,11 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
       idle()
     }
   }
+
+  // ---------------------------------
+  // Twitter profile possible actions
+  // ---------------------------------
+  
   def follow(t: TwitterProfile) {
     println(p+" now follow "+t.p)
     following += t

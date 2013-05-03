@@ -9,8 +9,9 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   var message = ListBuffer[String]()
   var pictures = ListBuffer[FacebookPicture]()
 
+  // Facebook profile's life
   def idle() {
-    if (p.facebook) {
+    if (p.facebook) { // Run the profile only if the people have a account
       for (people <- p.circle) {
         if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
           askFriend(people.facebookProfile)
@@ -30,6 +31,10 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
       idle()
     }
   }
+
+  // ---------------------------------
+  // YouTube profile possible actions
+  // ---------------------------------
 
   def askFriend(f: FacebookProfile)
   {

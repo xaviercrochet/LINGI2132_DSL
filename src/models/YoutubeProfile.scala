@@ -7,8 +7,10 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   var videos = ListBuffer[YoutubeVideo]()
 
   def idle() {
-    if(p.youtube) {
+    if(p.youtube) { // Run the profile only if the people have a account
+
       addVideo()
+
       if(Random.nextInt() % 5 == 0 && videos.length > 0) {
         // remove a random video
         videos -= videos(Random.nextInt(videos.length ))
@@ -36,6 +38,10 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
     }
   }
   
+  // ---------------------------------
+  // YouTube profile possible actions
+  // ---------------------------------
+
   def subscribe(y: YoutubeProfile)
   {
     println(p + " has subscribed to " + y.p + "(Youtube)")
