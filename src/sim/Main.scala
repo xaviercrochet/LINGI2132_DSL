@@ -10,6 +10,16 @@ object App {
     val nbSub = 3
     val nbPop = 10
 
+    /*
+    val globalPopulation = rules { population =>
+        
+        population count (25.millions student)
+        population count (30.millions middle_age)
+        population count (10.millions teenager)
+
+    }
+    */
+
     val model = new SimModel()
     val observer = new Observer()
     Facebook.nbSubscriber = nbSub
