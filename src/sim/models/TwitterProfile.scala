@@ -16,8 +16,9 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
       follow(people.twitterProfile)
     }
     // unfollow someone
-    if(Random.nextInt()%5 == 0 && following.length > 0)
+    if(Random.nextInt()%5 == 0 && following.length > 0) {
       unfollow(following(Random.nextInt(following.length)))
+    }
   }
 
   // ---------------------------------
