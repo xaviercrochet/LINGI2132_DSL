@@ -18,6 +18,10 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
       if(Random.nextInt()%5 == 0 && following.length > 0)
         unfollow(following(Random.nextInt(following.length)))
       }
+
+    m.wait(1.0) {
+      idle()
+    }
   }
   def follow(t: TwitterProfile) {
     println(p+" now follow "+t.p)

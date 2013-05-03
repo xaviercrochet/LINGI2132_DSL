@@ -9,8 +9,8 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   var message = ListBuffer[String]()
   var pictures = ListBuffer[FacebookPicture]()
 
-  
   def idle() {
+    if (p.facebook) {
       for (people <- p.circle) {
         if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
           askFriend(people.facebookProfile)
@@ -24,9 +24,11 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
 
       post(Random.nextString(20))
       uploadPicture()
-      m.wait(1.0) {
-        idle()
-      }
+    }
+
+    m.wait(1.0) {
+      idle()
+    }
   }
 
   def askFriend(f: FacebookProfile)

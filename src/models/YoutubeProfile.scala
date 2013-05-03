@@ -29,9 +29,10 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
         //unsubscribe from a random subscription
         unsuscribe(subscriptions(Random.nextInt(subscriptions.length )))
       }
-      m.wait(5.0) {
-        idle()
-      }
+    }
+
+    m.wait(5.0) {
+      idle()
     }
   }
   

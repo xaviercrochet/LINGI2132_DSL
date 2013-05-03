@@ -11,11 +11,11 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
   var circle: ListBuffer[People] = _
   
   def run() {
-    if(facebook)
+    //if(facebook)
       facebookProfile.idle()
-    if(youtube)
+    //if(youtube)
       youtubeProfile.idle()
-    if(twitter)
+    //if(twitter)
       twitterProfile.idle()
   }
   
