@@ -15,15 +15,18 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def idle() {
     if (p.facebook) { // Run the profile only if the people have a account
       for (people <- p.circle) {
-        if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
-          askFriend(people.facebookProfile)
         
-        else
+        if (people.facebook && !(friends.exists(x => x == people.facebookProfile))) {
+          askFriend(people.facebookProfile)
+        }
+        else {
           sendFacebookInvitation(people)
+        }
       }
       
-      if(Random.nextInt() %5 == 0 && friends.length > 0)
+      if(Random.nextInt() %5 == 0 && friends.length > 0) {
         sendMessage(friends(Random.nextInt(friends.length)), "Message"+Random.nextInt(friends.length))
+      }
 
       post(Random.nextString(20))
       uploadPicture()

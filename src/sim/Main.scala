@@ -27,7 +27,7 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSubscriber)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(2)
+    model.simulate(30)
     println("--- Nombre inscrit after : " + Facebook.nbSubscriber)
     
   }
