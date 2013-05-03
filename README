@@ -1,0 +1,6 @@
+*******COMPILATION(Pour Julien le noob)*****
+scalac src/*.scala src/*/*.scala -d bin/
+*******EXECUTION****
+cd bin/
+scala App
+****************
