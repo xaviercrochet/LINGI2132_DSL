@@ -12,7 +12,7 @@ object App {
 
     val model = new SimModel()
     val observer = new Observer()
-
+    model.simulate(100)
     Facebook.nbSubscriber = nbSub
 
     var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, 7, 77, model, observer)
@@ -27,7 +27,6 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSubscriber)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(2)
     println("--- Nombre inscrit after : " + Facebook.nbSubscriber)
     
   }

@@ -8,35 +8,27 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   var subscriptions = ListBuffer[YoutubeProfile]()
   var videos = ListBuffer[YoutubeVideo]()
 
-  def idle() {
-    if(p.youtube) { // Run the profile only if the people have a account
-
-      addVideo()
-
-      if(Random.nextInt() % 5 == 0 && videos.length > 0) {
-        // remove a random video
-        videos -= videos(Random.nextInt(videos.length ))
-      }
-      if(Random.nextInt() % 5 == 0 && subscriptions.length > 0 ) {
-        /// comment a random video from our subscribtions
-        var s = subscriptions(Random.nextInt(subscriptions.length ))
-        if(s.videos.length > 0)
-          commentVideo(s.videos(Random.nextInt(s.videos.length)))
-      }
-      if(Random.nextInt() %5 == 0) { 
-        for(people <- p.circle; if (people.youtube && !subscriptions.exists(x => x == people.youtubeProfile))) {
-        // Subscribe to a random circle member
-          subscribe(people.youtubeProfile)
-        }
-      }
-      if(Random.nextInt()%5 == 0 && subscriptions.length > 0) {
-        //unsubscribe from a random subscription
-        unsuscribe(subscriptions(Random.nextInt(subscriptions.length )))
+  def run() {
+    addVideo()
+    if(Random.nextInt() % 5 == 0 && videos.length > 0) {
+      // remove a random video
+      videos -= videos(Random.nextInt(videos.length ))
+    }
+    if(Random.nextInt() % 5 == 0 && subscriptions.length > 0 ) {
+      /// comment a random video from our subscribtions
+      var s = subscriptions(Random.nextInt(subscriptions.length ))
+      if(s.videos.length > 0)
+        commentVideo(s.videos(Random.nextInt(s.videos.length)))
+    }
+    if(Random.nextInt() %5 == 0) { 
+      for(people <- p.circle; if (people.youtube && !subscriptions.exists(x => x == people.youtubeProfile))) {
+      // Subscribe to a random circle member
+        subscribe(people.youtubeProfile)
       }
     }
-
-    m.wait(5.0) {
-      idle()
+    if(Random.nextInt()%5 == 0 && subscriptions.length > 0) {
+      //unsubscribe from a random subscription
+      unsuscribe(subscriptions(Random.nextInt(subscriptions.length )))
     }
   }
   

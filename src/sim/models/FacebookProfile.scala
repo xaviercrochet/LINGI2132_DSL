@@ -12,26 +12,20 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   var pictures = ListBuffer[FacebookPicture]()
 
   // Facebook profile's life
-  def idle() {
-    if (p.facebook) { // Run the profile only if the people have a account
-      for (people <- p.circle) {
-        if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
-          askFriend(people.facebookProfile)
-        
-        else
-          sendFacebookInvitation(people)
-      }
+  def run() {
+    for (people <- p.circle) {
+      if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
+        askFriend(people.facebookProfile)
       
-      if(Random.nextInt() %5 == 0 && friends.length > 0)
-        sendMessage(friends(Random.nextInt(friends.length)), "Message"+Random.nextInt(friends.length))
-
-      post(Random.nextString(20))
-      uploadPicture()
+      else
+        sendFacebookInvitation(people)
     }
+    
+    if(Random.nextInt() %5 == 0 && friends.length > 0)
+      sendMessage(friends(Random.nextInt(friends.length)), "Message"+Random.nextInt(friends.length))
 
-    m.wait(1.0) {
-      idle()
-    }
+    post(Random.nextString(20))
+    uploadPicture()
   }
 
   // ---------------------------------

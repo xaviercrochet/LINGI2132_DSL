@@ -9,21 +9,15 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
   var tweets = ListBuffer[Tweet]()
 
   
-  def idle() {
-    if (p.twitter) { // Run the profile only if the people have a account
-      tweet()
-      // follow a random circle member
-      for (people <- p.circle; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
-        follow(people.twitterProfile)
-      }
-      // unfollow someone
-      if(Random.nextInt()%5 == 0 && following.length > 0)
-        unfollow(following(Random.nextInt(following.length)))
-      }
-
-    m.wait(1.0) {
-      idle()
+  def run() {
+    tweet()
+    // follow a random circle member
+    for (people <- p.circle; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
+      follow(people.twitterProfile)
     }
+    // unfollow someone
+    if(Random.nextInt()%5 == 0 && following.length > 0)
+      unfollow(following(Random.nextInt(following.length)))
   }
 
   // ---------------------------------
