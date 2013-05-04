@@ -24,6 +24,12 @@ object App {
         MiddleAges  represent 50.percent
         Teenagers   represent 25.percent
 
+    /* SOCIAL NETWORK CONFIGURATION */
+    /*
+    Facebook count (5. percent_of globalPopulation)
+    Twitter count (10. percent_of globalPopulation)
+    */
+
     /* TESTING */
     
     println("############")
@@ -33,12 +39,9 @@ object App {
     println("DSL Teenagers : " + Population.teenagers)
     println("############")
 
-    /*
-    Facebook count (5. percent_of globalPopulation)
-    Twitter count (10. percent_of globalPopulation)
-
-    simulate_for 30.days
-    */
+    
+    // simulate_for 30.days
+    
 
     val model = new SimModel()
     val observer = new Observer()
