@@ -1,38 +1,41 @@
 package sim
+
 import scala.collection.mutable.ListBuffer
+
 import sim.models._
 import sim.scenario._
+import sim.dsl._
+import sim.dsl.Preamble._
+import sim.dsl.people._
 
 object App {
+
   def main(args: Array[String]): Unit = {
 
     // Config
     val nbSub = 3
     val nbPop = 10
 
-    /*
-    val globalPopulation = rules { population =>
+    /* POPULATION CONFIGURATION */
 
-        population composed_by 5.millions with_profile { individual =>
+    Population is_composed_by 5.thousands_of_people
             
-            students    represent (25. percent_of individual)
-            middle_ages represent (50. percent_of individual)
-            teenagers   represent (25. percent_of individual)
-        }
-    }
-    */
+        Students    represent 25.percent
+        MiddleAges  represent 50.percent
+        Teenagers   represent 25.percent
+
+    /* TESTING */
+    
+    println("############")
+    println("DSL Population : " + Population.population)
+    println("DSL Students : " + Population.students)
+    println("DSL MiddleAges : " + Population.middle_ages)
+    println("DSL Teenagers : " + Population.teenagers)
+    println("############")
 
     /*
-    //val globalPopulation = rules { population =>
-        
-        Population is_composed_by (25.millions student)
-        Population is_composed_by (30.millions middle_age)
-        Population is_composed_by (10.millions teenager)
-
-    //}
-
     Facebook count (5. percent_of globalPopulation)
-    Twitter coun (10. percent_of globalPopulation)
+    Twitter count (10. percent_of globalPopulation)
 
     simulate_for 30.days
     */
@@ -53,7 +56,7 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSubscriber)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(30)
+    model.simulate(2)
     println("--- Nombre inscrit after : " + Facebook.nbSubscriber)
     
   }

@@ -1,4 +1,4 @@
-package sim.dsl
+/*package sim.dsl
 
 object rules {
 	
@@ -7,4 +7,4 @@ object rules {
 	implicit def int2Scale(i: Int) = Scale(i)
 
 	implicit def 
-}
+}*/
