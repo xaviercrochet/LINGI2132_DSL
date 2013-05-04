@@ -13,11 +13,11 @@ object App {
     /*
     val globalPopulation = rules { population =>
 
-        population composed_by 5.millions with_profile { people =>
+        population composed_by 5.millions with_profile { individual =>
             
-            students    represent (25. percent_of people)
-            middle_ages represent (50. percent_of people)
-            teenagers   represent (25. percent_of people)
+            students    represent (25. percent_of individual)
+            middle_ages represent (50. percent_of individual)
+            teenagers   represent (25. percent_of individual)
         }
     }
     */
