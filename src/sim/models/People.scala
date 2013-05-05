@@ -2,10 +2,11 @@ package sim.models
 
 import sim._
 import sim.dsl._
+import sim.dsl.people._
 
 import scala.collection.mutable.ListBuffer
 
-class People(val name: String, val o: Observer, val m: SimModel, var age: Int, var sex: Boolean, var facebook: Boolean, var youtube: Boolean, var twitter: Boolean) {
+class People(val name: String, val o: Observer, val m: SimModel, var age: Int, var sex: Boolean, var facebook: Boolean, var youtube: Boolean, var twitter: Boolean, val pt: PeopleType) {
   
   // People's data
   var facebookProfile = new FacebookProfile(m, o, this)

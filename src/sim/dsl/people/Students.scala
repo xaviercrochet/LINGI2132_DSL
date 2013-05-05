@@ -3,7 +3,7 @@ package sim.dsl.people
 import sim.dsl.Population
 import sim.models.SocialNetwork
 
-object Students {
+object Students extends PeopleType {
 	
 	def represent(pc: Int) {
 

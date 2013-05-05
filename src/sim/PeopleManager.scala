@@ -2,6 +2,7 @@ package sim
 
 import sim.models._
 import sim.dsl._
+import sim.dsl.people._
 
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
@@ -11,11 +12,14 @@ object PeopleManager {
 	def createPeople(m: SimModel, o: Observer): ListBuffer[People] = {
 
 		var population = new ListBuffer[People]()
-		//var nbSubVar = nbSub
 
 		var nbFb = Facebook.nbSub
 		var nbTwi = Twitter.nbSub
 		var nbYt = Youtube.nbSub
+
+		var teen = Population.teenagers
+		var ma = Population.middle_ages
+		var st = Population.students
 
 		val minAge = 7
 		val maxAge = 77
@@ -23,14 +27,29 @@ object PeopleManager {
 		// People creation
 		for(i <- 0 until Population.nbPop) {
 
-      	val onePeople = new People("MyName"+i, o, m, minAge + Random.nextInt(maxAge - minAge), Random.nextBoolean(), nbFb > 0 , nbYt >0, nbTwi > 0)
+			val age = minAge + Random.nextInt(maxAge - minAge)
+			val sex = Random.nextBoolean()
 
-			population += onePeople
+			val fb = nbFb > 0
+			val yt = nbYt > 0
+			val twi = nbTwi > 0
+
+			if(teen > 0) {
+				val onePeople = new People("MyName"+i, o, m, age, sex, fb , yt, twi, Teenagers)
+				population += onePeople
+			}
+			else if(ma > 0) {
+				val onePeople = new People("MyName"+i, o, m, age, sex, fb, yt, twi, MiddleAges)	
+				population += onePeople
+			}
+			else if(st > 0) {
+				val onePeople = new People("MyName"+i, o, m, age, sex, fb, yt, twi, Students)
+				population += onePeople
+			}
 
 			nbFb -= 1
 			nbTwi -= 1
 			nbYt -= 1
-
 		}
 
 		// Link between people

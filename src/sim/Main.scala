@@ -80,7 +80,7 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSub)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(5)
+    model.simulate(15)
     println("--- Nombre inscrit after : " + Facebook.nbSub)
     
   }
