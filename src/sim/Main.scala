@@ -12,9 +12,9 @@ object App {
 
   def main(args: Array[String]): Unit = {
 
-    // Config
-    val nbSub = 3
-    val nbPop = 10
+    /////////////////////////////////////
+    //            THE DSL              //
+    /////////////////////////////////////
 
     /* POPULATION CONFIGURATION */
 
@@ -42,6 +42,9 @@ object App {
     
     // simulate_for 30.days
     
+    // Config
+    val nbSub = 3
+    val nbPop = 10
 
     val model = new SimModel()
     val observer = new Observer()
