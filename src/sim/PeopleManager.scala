@@ -1,21 +1,36 @@
 package sim
+
+import sim.models._
+import sim.dsl._
+
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
-import sim.models._
 
 object PeopleManager {
 
-	def createPeople(nbPeople: Int, minAge: Int, maxAge: Int, nbSub: Int, m: SimModel, o: Observer): ListBuffer[People] = {
+	def createPeople(m: SimModel, o: Observer): ListBuffer[People] = {
 
 		var population = new ListBuffer[People]()
-		var nbSubVar = nbSub
+		//var nbSubVar = nbSub
+
+		var nbFb = Facebook.nbSub
+		var nbTwi = Twitter.nbSub
+		var nbYt = Youtube.nbSub
+
+		val minAge = 7
+		val maxAge = 77
 
 		// People creation
-		for(i <- 0 until nbPeople) {
+		for(i <- 0 until Population.nbPop) {
 
-      	val onePeople = new People("MyName"+i, o, m, minAge+Random.nextInt(maxAge-minAge), Random.nextBoolean(), nbSubVar > 0 , nbSubVar >0, nbSubVar > 0)
+      	val onePeople = new People("MyName"+i, o, m, minAge + Random.nextInt(maxAge - minAge), Random.nextBoolean(), nbFb > 0 , nbYt >0, nbTwi > 0)
+
 			population += onePeople
-			nbSubVar -= 1
+
+			nbFb -= 1
+			nbTwi -= 1
+			nbYt -= 1
+
 		}
 
 		// Link between people

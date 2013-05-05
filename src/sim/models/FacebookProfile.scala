@@ -18,7 +18,10 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
         askFriend(people.facebookProfile)
       
       else
-        sendFacebookInvitation(people)
+
+        if(Random.nextInt() %5 == 0) {
+          sendFacebookInvitation(people)
+        }
     }
     
     if(Random.nextInt() %5 == 0 && friends.length > 0)

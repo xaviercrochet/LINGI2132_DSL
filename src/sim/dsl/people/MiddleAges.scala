@@ -7,7 +7,7 @@ object MiddleAges {
 	
 	def represent(pc: Int) {
 
-		Population.middle_ages = (Population.population / 100) * pc
+		Population.middle_ages = (Population.nbPop / 100) * pc
 
 	}
 

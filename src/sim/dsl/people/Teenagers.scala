@@ -7,19 +7,25 @@ object Teenagers {
 	
 	def represent(pc: Int) {
 
-		Population.teenagers = (Population.population / 100) * pc
+		Population.teenagers = (Population.nbPop / 100) * pc
 
 	}
 
 	def love (sm: SocialNetwork) {
+
 		println("Students love " + sm.name)
+
 	}
 
 	def dont_care_of(sm: SocialNetwork) {
+
 		println("Students don't care of " + sm.name)
+
 	}
 
 	def hate(sm: SocialNetwork) {
+
 		println("Students hate " + sm.name)
+
 	}
 }

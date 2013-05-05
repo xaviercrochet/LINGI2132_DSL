@@ -7,7 +7,7 @@ import sim.scenario._
 class Observer()
 {
 
-  var nbSubscriber = 0
+  //var nbSubscriber = 0
 
   var fbInvitationsObs = ListBuffer[Scenario]()
   //var fbMessageObs: ListBuffer[Scenario] = _
@@ -42,10 +42,10 @@ class Observer()
   }
 
   def notifyFacebookJoin() {
-  	Facebook.nbSubscriber += 1
+  	Facebook.nbSub += 1
   }
 
   def notifyFacebookLeave() {
-  	Facebook.nbSubscriber -= 1
+  	Facebook.nbSub -= 1
   }
 }

@@ -7,7 +7,7 @@ object Students {
 	
 	def represent(pc: Int) {
 
-		Population.students = (Population.population / 100) * pc
+		Population.students = (Population.nbPop / 100) * pc
 
 	}
 

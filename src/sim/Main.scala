@@ -18,24 +18,25 @@ object App {
 
     /* POPULATION CONFIGURATION */
 
-    Population is_composed_by 5.thousands_of_people
+    Population is_composed_by 100.people
             
         Students    represent 25.percent
         MiddleAges  represent 50.percent
         Teenagers   represent 25.percent
 
+
     /* SOCIAL NETWORK CONFIGURATION */
     
-    Facebook count (2.thousands_of_people)
+    Facebook count 2.people
 
         Students    love         Facebook
         MiddleAges  dont_care_of Facebook
 
-    Twitter count (10.thousands_of_people)
+    Twitter  count 30.people
 
         MiddleAges  hate         Twitter
 
-    Youtube count (5.thousands_of_people)
+    Youtube  count 10.people
 
         Teenagers   love         Youtube
         Students    love         Youtube
@@ -47,26 +48,27 @@ object App {
     /* TESTING */
     
     println("############")
-    println("DSL Population : " + Population.population)
+    println("DSL Population : " + Population.nbPop)
     println("DSL Students : " + Population.students)
     println("DSL MiddleAges : " + Population.middle_ages)
     println("DSL Teenagers : " + Population.teenagers)
-    println("DSL Facebook : " + Facebook.nbSubscriber)
-    println("DSL Twitter : " + Twitter.nbSubscriber)
-    println("DSL Youtube : " + Youtube.nbSubscriber)
+    println("DSL Facebook : " + Facebook.nbSub)
+    println("DSL Twitter : " + Twitter.nbSub)
+    println("DSL Youtube : " + Youtube.nbSub)
     println("############")
     
     // simulate_for 30.days
     
     // Config
-    val nbSub = 3
-    val nbPop = 10
+    //val nbSub = 3
+    //val nbPop = 10
 
     val model = new SimModel()
     val observer = new Observer()
-    Facebook.nbSubscriber = nbSub
 
-    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(nbPop, nbSub, 7, 77, model, observer)
+    //Facebook.nbSub = nbSub
+
+    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(model, observer)
     println(listOfPeople)
 
     listOfPeople.foreach { one: People => 
@@ -76,10 +78,10 @@ object App {
     // Scenario
     Scenario1(observer)
 
-    println("--- Nombre inscrit before : " + Facebook.nbSubscriber)
+    println("--- Nombre inscrit before : " + Facebook.nbSub)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(2)
-    println("--- Nombre inscrit after : " + Facebook.nbSubscriber)
+    model.simulate(5)
+    println("--- Nombre inscrit after : " + Facebook.nbSub)
     
   }
 }
