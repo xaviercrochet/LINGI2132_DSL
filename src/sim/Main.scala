@@ -27,8 +27,22 @@ object App {
     /* SOCIAL NETWORK CONFIGURATION */
     
     Facebook count (2.thousands_of_people)
+
+        Students    love         Facebook
+        MiddleAges  dont_care_of Facebook
+
     Twitter count (10.thousands_of_people)
+
+        MiddleAges  hate         Twitter
+
     Youtube count (5.thousands_of_people)
+
+        Teenagers   love         Youtube
+        Students    love         Youtube
+
+    /* SCENARIOS */
+
+
 
     /* TESTING */
     
