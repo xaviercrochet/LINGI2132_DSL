@@ -44,6 +44,9 @@ object App {
     /* SCENARIOS */
 
 
+    /* LAUNCH THE SIMULATION */
+
+    // simulate_for 30.days
 
     /* TESTING */
     
@@ -57,16 +60,9 @@ object App {
     println("DSL Youtube : " + Youtube.nbSub)
     println("############")
     
-    // simulate_for 30.days
-    
     // Config
-    //val nbSub = 3
-    //val nbPop = 10
-
     val model = new SimModel()
     val observer = new Observer()
-
-    //Facebook.nbSub = nbSub
 
     var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(model, observer)
     println(listOfPeople)
@@ -80,7 +76,7 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSub)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(15)
+    model.simulate(30)
     println("--- Nombre inscrit after : " + Facebook.nbSub)
     
   }

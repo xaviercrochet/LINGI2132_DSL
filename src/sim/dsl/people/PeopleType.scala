@@ -2,12 +2,8 @@ package sim.dsl.people
 
 abstract class PeopleType {
 	
-	val love_pc = 80
-	val dont_care_of = 30
-	val hate = 5
-
-	//def love
-	//def dont_care_of
-	//def hate
+	def love_pc = 40
+	def dont_care_of_pc = 20
+	def hate_pc = 5
 
 }
