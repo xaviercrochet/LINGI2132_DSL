@@ -25,10 +25,10 @@ object App {
         Teenagers   represent 25.percent
 
     /* SOCIAL NETWORK CONFIGURATION */
-    /*
-    Facebook count (5. percent_of globalPopulation)
-    Twitter count (10. percent_of globalPopulation)
-    */
+    
+    Facebook count (2.thousands_of_people)
+    Twitter count (10.thousands_of_people)
+    Youtube count (5.thousands_of_people)
 
     /* TESTING */
     
@@ -37,8 +37,10 @@ object App {
     println("DSL Students : " + Population.students)
     println("DSL MiddleAges : " + Population.middle_ages)
     println("DSL Teenagers : " + Population.teenagers)
+    println("DSL Facebook : " + Facebook.nbSubscriber)
+    println("DSL Twitter : " + Twitter.nbSubscriber)
+    println("DSL Youtube : " + Youtube.nbSubscriber)
     println("############")
-
     
     // simulate_for 30.days
     

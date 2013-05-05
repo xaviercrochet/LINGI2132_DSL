@@ -1,6 +1,6 @@
 package sim.models
 
-object Facebook
+object Twitter
 {
   var nbSubscriber = 0
 
