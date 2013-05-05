@@ -5,7 +5,7 @@ import sim.models.SocialNetwork
 
 object Students extends PeopleType {
 	
-	def represent(pc: Int) {
+	def represent(pc: Double) {
 
 		Population.students = (Population.nbPop / 100) * pc
 

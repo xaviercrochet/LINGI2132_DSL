@@ -1,6 +1,6 @@
 package sim.dsl
 
-case class Scale(val amount: Int) {
+case class Scale(val amount: Double) {
 	
 	def thousands_of_people = amount * 1000
 

@@ -5,7 +5,7 @@ import sim.models.SocialNetwork
 
 object MiddleAges extends PeopleType {
 	
-	def represent(pc: Int) {
+	def represent(pc: Double) {
 
 		Population.middle_ages = (Population.nbPop / 100) * pc
 

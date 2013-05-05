@@ -1,6 +1,6 @@
 package sim.dsl
 
-case class Duration(val amount: Int) {
+case class Duration(val amount: Double) {
 
 	def weeks = amount * 7
 

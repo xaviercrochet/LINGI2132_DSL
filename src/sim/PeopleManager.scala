@@ -24,8 +24,10 @@ object PeopleManager {
 		val minAge = 7
 		val maxAge = 77
 
+		val nbPop = Population.nbPop.toInt
+
 		// People creation
-		for(i <- 0 until Population.nbPop) {
+		for(i <- 0 until nbPop) {
 
 			val age = minAge + Random.nextInt(maxAge - minAge)
 			val sex = Random.nextBoolean()

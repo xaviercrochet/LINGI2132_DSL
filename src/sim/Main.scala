@@ -18,7 +18,7 @@ object App {
 
     /* POPULATION CONFIGURATION */
 
-    Population is_composed_by 100.people
+    Population is_composed_by 20.people
             
         Students    represent 25.percent
         MiddleAges  represent 50.percent

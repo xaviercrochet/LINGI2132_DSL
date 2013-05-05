@@ -3,9 +3,9 @@ package sim.models
 object Facebook extends SocialNetwork
 {
   override val name = "facebook"
-  var nbSub = 0
+  var nbSub = 0.
 
-  def count(nb: Int) {
+  def count(nb: Double) {
 		nbSub += nb
 	}
 }
