@@ -16,11 +16,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def run() {
     for (people <- p.circle) {
 
-      //print ("!!!!")
-
       if((Random.nextInt(100) - people.pt.fb_pref) < 0) {
-
-        //print("++++")
 
         if (people.facebook && !(friends.exists(x => x == people.facebookProfile))) {
           askFriend(people.facebookProfile)

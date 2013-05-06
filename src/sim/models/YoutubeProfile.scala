@@ -9,26 +9,39 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   var videos = ListBuffer[YoutubeVideo]()
 
   def run() {
+
     addVideo()
-    if(Random.nextInt() % 5 == 0 && videos.length > 0) {
+
+    if(((Random.nextInt(100) - p.pt.yt_pref) < 0) && videos.length > 0) {
       // remove a random video
       videos -= videos(Random.nextInt(videos.length ))
     }
-    if(Random.nextInt() % 5 == 0 && subscriptions.length > 0 ) {
+
+    if(((Random.nextInt(100) - p.pt.yt_pref) < 0) && subscriptions.length > 0 ) {
       /// comment a random video from our subscribtions
       var s = subscriptions(Random.nextInt(subscriptions.length ))
       if(s.videos.length > 0)
         commentVideo(s.videos(Random.nextInt(s.videos.length)))
     }
-    if(Random.nextInt() %5 == 0) { 
+
+    if((Random.nextInt(100) - p.pt.yt_pref) < 0) { 
       for(people <- p.circle; if (people.youtube && !subscriptions.exists(x => x == people.youtubeProfile))) {
-      // Subscribe to a random circle member
+        // Subscribe to a random circle member
         subscribe(people.youtubeProfile)
       }
     }
-    if(Random.nextInt()%5 == 0 && subscriptions.length > 0) {
+
+    if(((Random.nextInt(100) - p.pt.yt_pref) < 0) && subscriptions.length > 0) {
       //unsubscribe from a random subscription
       unsuscribe(subscriptions(Random.nextInt(subscriptions.length )))
+    }
+
+    for(people <- p.circle; if !(people.youtube)) {
+
+      if ((Random.nextInt(100) - p.pt.yt_pref) < 0) {
+        
+        sendYoutubeInvitation(people)
+      }
     }
   }
   
@@ -66,9 +79,10 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
     v.comments += new YoutubeVideoComment(this, v)
   }
 
-  def invite(pp: People)
+  def sendYoutubeInvitation(pp: People)
   {
     //println(p + " invites "+pp+" to join YouTube")
     pp.youtubeInvitations += new YoutubeInvitation(pp)
+    o.notifyYoutubeInvitation(pp)
   }
 }

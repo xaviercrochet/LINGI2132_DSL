@@ -17,12 +17,16 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
     if((Random.nextInt(100) - p.pt.twi_pref) < 0) {
 
       if(p.circle.length > 0) {
-        
+
         val profileView = Random.shuffle(p.circle) take Random.nextInt(p.circle.length)
 
         // follow a random circle member
         for (people <- profileView; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
           follow(people.twitterProfile)
+        }
+
+        for(people <- profileView; if !people.twitter) {
+          sendTwitterInvitation(people)
         }
 
         // unfollow someone
@@ -57,8 +61,9 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
     tweets -= t
   }
 
-  def invite(pp: People) {
-    println(p + " invited " + pp + "on twitter")
+  def sendTwitterInvitation(pp: People) {
+    //println(p + " invited " + pp + "on twitter")
     p.twitterInvitations += new TwitterInvitation(pp) 
+    o.notifyTwitterInvitation(pp)
   }
 }

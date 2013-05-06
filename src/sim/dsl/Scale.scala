@@ -8,4 +8,5 @@ case class Scale(val amount: Double) {
 
 	def people = amount
 
+	def invitations = amount
 }

@@ -27,7 +27,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
       youtubeProfile.run()
     if(twitter)
       twitterProfile.run()
-      
+
     m.wait(5.0) {
       run()
     }
@@ -50,22 +50,26 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
   def joinTwitter() {
     println(name + " has join Twitter")
     twitter = true
+    o.notifyTwitterJoin()
   }
 
   def leaveTwitter() {
     println(name + " has left Twitter")
     twitter = false
+    o.notifyTwitterLeave()
   }
 
   // YouTube's actions
   def joinYoutube() {
     println(name + " has join Youtube")
     youtube = true
+    o.notifyYoutubeJoin()
   }
 
   def leaveYoutube() {
     println(name + " has left Youtube")
     youtube = false
+    o.notifyYoutubeLeave()
   }
 
   override def toString() = {

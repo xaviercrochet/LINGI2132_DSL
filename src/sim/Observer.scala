@@ -7,22 +7,14 @@ import sim.scenario._
 class Observer()
 {
 
-  //var nbSubscriber = 0
+  // Observator's lists
+  var fbInvitationsObs = ListBuffer[Scenario]()
+  var twiInvitationsObs = ListBuffer[Scenario]()
+  var ytInvitationsObs = ListBuffer[Scenario]()
 
   ///////////////////////////////////
   //         FACEBOOK              //
   ///////////////////////////////////
-
-  var fbInvitationsObs = ListBuffer[Scenario]()
-  //var fbMessageObs: ListBuffer[Scenario] = _
-
-  def notifyFacebookInvitation(p: People) {
-
-    fbInvitationsObs.foreach { obs =>
-    	obs.notifySc(p)
-    }
-
-  }
   
   def notifyFacebookMessage(sender: FacebookProfile, receiver: FacebookProfile, m: String)
   {
@@ -52,6 +44,13 @@ class Observer()
     }
   }
 
+  def notifyFacebookInvitation(p: People) {
+
+    fbInvitationsObs.foreach { obs =>
+      obs.notifySc(p)
+    }
+  }
+
   def notifyFacebookJoin() {
   	Facebook.nbSub += 1
   }
@@ -64,8 +63,11 @@ class Observer()
   //         TWITTER               //
   ///////////////////////////////////
 
-  def notifyTwitterInvitation(s: TwitterProfile, r: TwitterProfile) {
+  def notifyTwitterInvitation(p: People) {
 
+    twiInvitationsObs.foreach { obs =>
+      obs.notifySc(p)
+    }
   }
 
   def notifyTwitterJoin() {
@@ -79,6 +81,13 @@ class Observer()
   ///////////////////////////////////
   //         YOUTUBE               //
   ///////////////////////////////////
+
+  def notifyYoutubeInvitation(p: People) {
+
+    ytInvitationsObs.foreach { obs =>
+      obs.notifySc(p)
+    }
+  }
 
   def notifyYoutubeJoin() {
     Youtube.nbSub += 1

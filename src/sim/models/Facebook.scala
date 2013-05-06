@@ -8,4 +8,6 @@ object Facebook extends SocialNetwork
   def count(nb: Double) {
 		nbSub += nb
 	}
+
+  def when_receive(i: Double): Vector[Any] = Vector("facebook", i)
 }

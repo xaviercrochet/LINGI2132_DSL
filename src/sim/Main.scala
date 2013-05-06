@@ -4,6 +4,7 @@ import sim.models._
 import sim.dsl._
 import sim.dsl.Preamble._
 import sim.dsl.people._
+import sim.scenario._
 
 object App {
 
@@ -14,7 +15,6 @@ object App {
     /////////////////////////////////////
 
     /* POPULATION CONFIGURATION */
-
     Population is_composed_by 20.people
             
         Students  represent 25.percent
@@ -23,32 +23,23 @@ object App {
 
 
     /* SOCIAL NETWORK CONFIGURATION */
-    
     Facebook count 2.people
 
         Students  love         Facebook
-        Adults    love         Facebook
+        Adults    dont_care_of Facebook
         Teenagers love         Facebook
 
     Twitter  count 10.people
 
         Adults    hate         Twitter
+        Teenagers love         Twitter
 
     Youtube  count 10.people
 
-        Teenagers love         Youtube
-        Students  love         Youtube
-
-
-    /* SCENARIOS */
-
-
-    /* LAUNCH THE SIMULATION */
-
-    // simulate_for 30.days
+        Teenagers hate         Youtube
+        Students  hate         Youtube
 
     /* TESTING */
-    
     println("############")
     println("DSL Population : " + Population.nbPop)
     println("DSL Students : " + Population.students)
@@ -59,7 +50,7 @@ object App {
     println("DSL Youtube : " + Youtube.nbSub)
     println("############")
     
-    // Config
+    /* RUN THE SIMULATION ! */
     Run the_simulation
     
     println("############")
@@ -71,5 +62,11 @@ object App {
     println("DSL Twitter : " + Twitter.nbSub)
     println("DSL Youtube : " + Youtube.nbSub)
     println("############")  
+
+    /* SCENARIOS CONFIGURATION */
+    
+    Scenario1 students_join(Facebook when_receive 3.invitations)
+    //Scenario2 adults_join Twitter when_count 10.people
+    
   }
 }
