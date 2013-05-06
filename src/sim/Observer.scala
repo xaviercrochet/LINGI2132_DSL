@@ -64,6 +64,10 @@ class Observer()
   //         TWITTER               //
   ///////////////////////////////////
 
+  def notifyTwitterInvitation(s: TwitterProfile, r: TwitterProfile) {
+
+  }
+
   def notifyTwitterJoin() {
     Twitter.nbSub += 1
   }

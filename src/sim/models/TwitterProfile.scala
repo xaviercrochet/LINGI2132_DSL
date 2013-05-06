@@ -16,16 +16,19 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
 
     if((Random.nextInt(100) - p.pt.twi_pref) < 0) {
 
-      val profileView = Random.shuffle(p.circle) take Random.nextInt(p.circle.length)
+      if(p.circle.length > 0) {
+        
+        val profileView = Random.shuffle(p.circle) take Random.nextInt(p.circle.length)
 
-      // follow a random circle member
-      for (people <- profileView; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
-        follow(people.twitterProfile)
-      }
+        // follow a random circle member
+        for (people <- profileView; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
+          follow(people.twitterProfile)
+        }
 
-      // unfollow someone
-      if(Random.nextInt()%5 == 0 && following.length > 0) {
-        unfollow(following(Random.nextInt(following.length)))
+        // unfollow someone
+        if(Random.nextInt()%5 == 0 && following.length > 0) {
+          unfollow(following(Random.nextInt(following.length)))
+        }
       }
     }
   }

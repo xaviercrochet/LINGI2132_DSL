@@ -14,7 +14,6 @@ class Scenario1 extends Scenario {
       		p.joinFacebook()
     	}
 	}
-
 }
 
 object Scenario1 {

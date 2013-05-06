@@ -1,9 +1,6 @@
 package sim
 
-import scala.collection.mutable.ListBuffer
-
 import sim.models._
-import sim.scenario._
 import sim.dsl._
 import sim.dsl.Preamble._
 import sim.dsl.people._
@@ -18,7 +15,7 @@ object App {
 
     /* POPULATION CONFIGURATION */
 
-    Population is_composed_by 100.people
+    Population is_composed_by 20.people
             
         Students  represent 25.percent
         Adults    represent 50.percent
@@ -29,11 +26,11 @@ object App {
     
     Facebook count 2.people
 
-        Students  hate         Facebook
-        Adults    hate         Facebook
-        Teenagers hate         Facebook
+        Students  love         Facebook
+        Adults    love         Facebook
+        Teenagers love         Facebook
 
-    Twitter  count 30.people
+    Twitter  count 10.people
 
         Adults    hate         Twitter
 
@@ -63,21 +60,7 @@ object App {
     println("############")
     
     // Config
-    val model = new SimModel()
-    val observer = new Observer()
-
-    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(model, observer)
-    println(listOfPeople)
-
-    listOfPeople.foreach { one: People => 
-        println(one.name + " is linked to " + one.circle)
-    }
-
-    // Scenario
-    Scenario1(observer)
-
-    PeopleManager.activatePeople(listOfPeople)
-    model.simulate(10)
+    Run the_simulation
     
     println("############")
     println("DSL Population : " + Population.nbPop)

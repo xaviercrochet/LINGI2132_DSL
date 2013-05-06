@@ -68,9 +68,9 @@ object PeopleManager {
 	}
 
   def activatePeople(listOfPeople: ListBuffer[People]) {
-    println("Activating people ... size: "+listOfPeople.length)
+    //println("Activating people ... size: "+listOfPeople.length)
     for (p <- listOfPeople) {
-      println("Activating: "+ p)
+      //println("Activating: "+ p)
       p.run()
     }
   }

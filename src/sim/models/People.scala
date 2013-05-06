@@ -27,6 +27,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
       youtubeProfile.run()
     if(twitter)
       twitterProfile.run()
+      
     m.wait(5.0) {
       run()
     }
