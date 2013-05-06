@@ -1,4 +1,5 @@
 package sim.scenario
+
 import sim.models._
 import sim._
 

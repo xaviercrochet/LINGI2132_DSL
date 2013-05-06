@@ -24,13 +24,13 @@ object Teenagers extends PeopleType {
 		println("Teenagers love " + sm.name)
 
 		if(sm.name == "facebook") {
-			fb_pref_pc = 80
+			fb_pref_pc = 40
 		}
 		else if(sm.name == "twitter") {
-			twi_pref_pc = 80
+			twi_pref_pc = 40
 		}
 		else if(sm.name == "youtube") {
-			yt_pref_pc = 80
+			yt_pref_pc = 40
 		}
 
 	}
@@ -40,13 +40,13 @@ object Teenagers extends PeopleType {
 		println("Teenagers don't care of " + sm.name)
 
 		if(sm.name == "facebook") {
-			fb_pref_pc = 50
+			fb_pref_pc = 20
 		}
 		else if(sm.name == "twitter") {
-			twi_pref_pc = 50
+			twi_pref_pc = 20
 		}
 		else if(sm.name == "youtube") {
-			yt_pref_pc = 50
+			yt_pref_pc = 20
 		}
 
 	}
@@ -56,13 +56,13 @@ object Teenagers extends PeopleType {
 		println("Teenagers hate " + sm.name)
 
 		if(sm.name == "facebook") {
-			fb_pref_pc = 15
+			fb_pref_pc = 10
 		}
 		else if(sm.name == "twitter") {
-			twi_pref_pc = 15
+			twi_pref_pc = 10
 		}
 		else if(sm.name == "youtube") {
-			yt_pref_pc = 15
+			yt_pref_pc = 10
 		}
 	}
 }

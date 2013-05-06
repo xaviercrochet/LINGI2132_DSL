@@ -18,7 +18,7 @@ object App {
 
     /* POPULATION CONFIGURATION */
 
-    Population is_composed_by 20.people
+    Population is_composed_by 100.people
             
         Students  represent 25.percent
         Adults    represent 50.percent
@@ -29,9 +29,9 @@ object App {
     
     Facebook count 2.people
 
-        Students  love         Facebook
-        Adults    love         Facebook
-        Teenagers love         Facebook
+        Students  hate         Facebook
+        Adults    hate         Facebook
+        Teenagers hate         Facebook
 
     Twitter  count 30.people
 
@@ -78,7 +78,7 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSub)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(5)
+    model.simulate(100)
     println("--- Nombre inscrit after : " + Facebook.nbSub)
     
   }
