@@ -20,26 +20,28 @@ object App {
 
     Population is_composed_by 20.people
             
-        Students    represent 25.percent
-        MiddleAges  represent 50.percent
-        Teenagers   represent 25.percent
+        Students  represent 25.percent
+        Adults    represent 50.percent
+        Teenagers represent 25.percent
 
 
     /* SOCIAL NETWORK CONFIGURATION */
     
     Facebook count 2.people
 
-        Students    love         Facebook
-        MiddleAges  dont_care_of Facebook
+        Students  hate         Facebook
+        Adults    hate         Facebook
+        Teenagers hate         Facebook
 
     Twitter  count 30.people
 
-        MiddleAges  hate         Twitter
+        Adults    hate         Twitter
 
     Youtube  count 10.people
 
-        Teenagers   love         Youtube
-        Students    love         Youtube
+        Teenagers love         Youtube
+        Students  love         Youtube
+
 
     /* SCENARIOS */
 
@@ -53,7 +55,7 @@ object App {
     println("############")
     println("DSL Population : " + Population.nbPop)
     println("DSL Students : " + Population.students)
-    println("DSL MiddleAges : " + Population.middle_ages)
+    println("DSL MiddleAges : " + Population.adults)
     println("DSL Teenagers : " + Population.teenagers)
     println("DSL Facebook : " + Facebook.nbSub)
     println("DSL Twitter : " + Twitter.nbSub)
@@ -76,7 +78,7 @@ object App {
 
     println("--- Nombre inscrit before : " + Facebook.nbSub)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(30)
+    model.simulate(5)
     println("--- Nombre inscrit after : " + Facebook.nbSub)
     
   }

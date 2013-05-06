@@ -5,10 +5,13 @@ import sim.models.SocialNetwork
 
 object Teenagers extends PeopleType {
 	
-	// Default preferences
-	var fb_pref = super.dont_care_of_pc
-	var yt_pref = super.dont_care_of_pc
-	var twi_pref = super.dont_care_of_pc
+	var fb_pref_pc = 50
+	var yt_pref_pc = 50
+	var twi_pref_pc = 50
+
+	override def fb_pref = fb_pref_pc
+	override def twi_pref = twi_pref_pc
+	override def yt_pref = yt_pref_pc
 
 	def represent(pc: Double) {
 
@@ -21,13 +24,13 @@ object Teenagers extends PeopleType {
 		println("Teenagers love " + sm.name)
 
 		if(sm.name == "facebook") {
-			fb_pref = super.love_pc
+			fb_pref_pc = 80
 		}
 		else if(sm.name == "twitter") {
-			twi_pref = super.love_pc
+			twi_pref_pc = 80
 		}
 		else if(sm.name == "youtube") {
-			yt_pref = super.love_pc
+			yt_pref_pc = 80
 		}
 
 	}
@@ -37,13 +40,13 @@ object Teenagers extends PeopleType {
 		println("Teenagers don't care of " + sm.name)
 
 		if(sm.name == "facebook") {
-			fb_pref = super.dont_care_of_pc
+			fb_pref_pc = 50
 		}
 		else if(sm.name == "twitter") {
-			twi_pref = super.dont_care_of_pc
+			twi_pref_pc = 50
 		}
 		else if(sm.name == "youtube") {
-			yt_pref = super.dont_care_of_pc
+			yt_pref_pc = 50
 		}
 
 	}
@@ -53,13 +56,13 @@ object Teenagers extends PeopleType {
 		println("Teenagers hate " + sm.name)
 
 		if(sm.name == "facebook") {
-			fb_pref = super.hate_pc
+			fb_pref_pc = 15
 		}
 		else if(sm.name == "twitter") {
-			twi_pref = super.hate_pc
+			twi_pref_pc = 15
 		}
 		else if(sm.name == "youtube") {
-			yt_pref = super.hate_pc
+			yt_pref_pc = 15
 		}
 	}
 }

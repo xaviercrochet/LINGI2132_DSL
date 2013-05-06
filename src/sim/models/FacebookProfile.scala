@@ -14,14 +14,21 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   // Facebook profile's life
   def run() {
     for (people <- p.circle) {
-      if (people.facebook && !(friends.exists(x => x == people.facebookProfile)))
-        askFriend(people.facebookProfile)
-      
-      else
 
-        if(Random.nextInt() %5 == 0) {
+      print ("!!!!")
+
+      if((Random.nextInt(100) - people.pt.fb_pref) > 0) {
+
+        print("++++")
+
+        if (people.facebook && !(friends.exists(x => x == people.facebookProfile))) {
+          askFriend(people.facebookProfile)
+        }
+        else {
           sendFacebookInvitation(people)
         }
+
+      }
     }
     
     if(Random.nextInt() %5 == 0 && friends.length > 0)
@@ -32,7 +39,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   }
 
   // ---------------------------------
-  // YouTube profile possible actions
+  // Facebook profile possible actions
   // ---------------------------------
 
   def askFriend(f: FacebookProfile)

@@ -3,8 +3,8 @@ package sim.dsl.people
 import sim.dsl.Population
 import sim.models.SocialNetwork
 
-object Students extends PeopleType {
-
+object Adults extends PeopleType {
+	
 	var fb_pref_pc = 50
 	var yt_pref_pc = 50
 	var twi_pref_pc = 50
@@ -15,13 +15,13 @@ object Students extends PeopleType {
 
 	def represent(pc: Double) {
 
-		Population.students = (Population.nbPop / 100) * pc
+		Population.adults = (Population.nbPop / 100) * pc
 
 	}
 
 	def love (sm: SocialNetwork) {
 
-		println("Students love " + sm.name)
+		println("Adults love " + sm.name)
 
 		if(sm.name == "facebook") {
 			fb_pref_pc = 80
@@ -37,7 +37,7 @@ object Students extends PeopleType {
 
 	def dont_care_of(sm: SocialNetwork) {
 
-		println("Students don't care of " + sm.name)
+		println("Adults don't care of " + sm.name)
 
 		if(sm.name == "facebook") {
 			fb_pref_pc = 50
@@ -53,7 +53,7 @@ object Students extends PeopleType {
 
 	def hate(sm: SocialNetwork) {
 
-		println("Students hate " + sm.name)
+		println("Adults hate " + sm.name)
 
 		if(sm.name == "facebook") {
 			fb_pref_pc = 15

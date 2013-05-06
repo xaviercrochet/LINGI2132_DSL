@@ -18,7 +18,7 @@ object PeopleManager {
 		var nbYt = Youtube.nbSub
 
 		var teen = Population.teenagers
-		var ma = Population.middle_ages
+		var ma = Population.adults
 		var st = Population.students
 
 		val minAge = 7
@@ -41,7 +41,7 @@ object PeopleManager {
 				population += onePeople
 			}
 			else if(ma > 0) {
-				val onePeople = new People("MyName"+i, o, m, age, sex, fb, yt, twi, MiddleAges)	
+				val onePeople = new People("MyName"+i, o, m, age, sex, fb, yt, twi, Adults)	
 				population += onePeople
 			}
 			else if(st > 0) {
