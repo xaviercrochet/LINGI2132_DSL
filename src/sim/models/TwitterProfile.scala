@@ -1,7 +1,9 @@
 package sim.models
+
+import sim._
+
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
-import sim._
 
 class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
 {
@@ -11,13 +13,20 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
   
   def run() {
     tweet()
-    // follow a random circle member
-    for (people <- p.circle; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
-      follow(people.twitterProfile)
-    }
-    // unfollow someone
-    if(Random.nextInt()%5 == 0 && following.length > 0) {
-      unfollow(following(Random.nextInt(following.length)))
+
+    if((Random.nextInt(100) - p.pt.twi_pref) < 0) {
+
+      val profileView = Random.shuffle(p.circle) take Random.nextInt(p.circle.length)
+
+      // follow a random circle member
+      for (people <- profileView; if (people.twitter && !following.exists(x => x == people.twitterProfile))) {
+        follow(people.twitterProfile)
+      }
+
+      // unfollow someone
+      if(Random.nextInt()%5 == 0 && following.length > 0) {
+        unfollow(following(Random.nextInt(following.length)))
+      }
     }
   }
 

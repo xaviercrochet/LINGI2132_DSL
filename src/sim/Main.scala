@@ -55,7 +55,7 @@ object App {
     println("############")
     println("DSL Population : " + Population.nbPop)
     println("DSL Students : " + Population.students)
-    println("DSL MiddleAges : " + Population.adults)
+    println("DSL Adults : " + Population.adults)
     println("DSL Teenagers : " + Population.teenagers)
     println("DSL Facebook : " + Facebook.nbSub)
     println("DSL Twitter : " + Twitter.nbSub)
@@ -76,10 +76,17 @@ object App {
     // Scenario
     Scenario1(observer)
 
-    println("--- Nombre inscrit before : " + Facebook.nbSub)
     PeopleManager.activatePeople(listOfPeople)
-    model.simulate(100)
-    println("--- Nombre inscrit after : " + Facebook.nbSub)
+    model.simulate(10)
     
+    println("############")
+    println("DSL Population : " + Population.nbPop)
+    println("DSL Students : " + Population.students)
+    println("DSL Adults : " + Population.adults)
+    println("DSL Teenagers : " + Population.teenagers)
+    println("DSL Facebook : " + Facebook.nbSub)
+    println("DSL Twitter : " + Twitter.nbSub)
+    println("DSL Youtube : " + Youtube.nbSub)
+    println("############")  
   }
 }

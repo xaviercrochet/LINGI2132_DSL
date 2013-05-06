@@ -16,11 +16,11 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   def run() {
     for (people <- p.circle) {
 
-      print ("!!!!")
+      //print ("!!!!")
 
       if((Random.nextInt(100) - people.pt.fb_pref) < 0) {
 
-        print("++++")
+        //print("++++")
 
         if (people.facebook && !(friends.exists(x => x == people.facebookProfile))) {
           askFriend(people.facebookProfile)
@@ -70,14 +70,14 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   
   def sendMessage(f: FacebookProfile, m: String)
   {
-    println(p.name + " sent " + m + " to " + f.p.name)
+    //println(p.name + " sent " + m + " to " + f.p.name)
     f.readMessage(f, m)
     o.notifyFacebookMessage(this, f, m)
   }
   
   def readMessage(f: FacebookProfile, m:String)
   {  
-    println(p.name + " read " + m + " from " + f.p.name)
+    //println(p.name + " read " + m + " from " + f.p.name)
   }
   
   def sendFacebookInvitation(pp: People)

@@ -18,8 +18,9 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
   var circle: ListBuffer[People] = _
   
   def run() {
-      // Run the people's social network profiles
-    println("Running: "+name)
+    
+    // Run the people's social network profiles
+    //println("Running: "+name)
     if(facebook)
       facebookProfile.run()
     if(youtube)

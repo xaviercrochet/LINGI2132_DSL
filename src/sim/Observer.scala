@@ -9,6 +9,10 @@ class Observer()
 
   //var nbSubscriber = 0
 
+  ///////////////////////////////////
+  //         FACEBOOK              //
+  ///////////////////////////////////
+
   var fbInvitationsObs = ListBuffer[Scenario]()
   //var fbMessageObs: ListBuffer[Scenario] = _
 
@@ -54,5 +58,29 @@ class Observer()
 
   def notifyFacebookLeave() {
   	Facebook.nbSub -= 1
+  }
+
+  ///////////////////////////////////
+  //         TWITTER               //
+  ///////////////////////////////////
+
+  def notifyTwitterJoin() {
+    Twitter.nbSub += 1
+  }
+
+  def notifyTwitterLeave() {
+    Twitter.nbSub -= 1
+  }
+
+  ///////////////////////////////////
+  //         YOUTUBE               //
+  ///////////////////////////////////
+
+  def notifyYoutubeJoin() {
+    Youtube.nbSub += 1
+  }
+
+  def notifyYoutubeLeave() {
+    Youtube.nbSub -= 1
   }
 }
