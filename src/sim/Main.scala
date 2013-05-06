@@ -29,9 +29,9 @@ object App {
     
     Facebook count 2.people
 
-        Students  hate         Facebook
-        Adults    hate         Facebook
-        Teenagers hate         Facebook
+        Students  love         Facebook
+        Adults    love         Facebook
+        Teenagers love         Facebook
 
     Twitter  count 30.people
 

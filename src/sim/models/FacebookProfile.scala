@@ -17,7 +17,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
 
       print ("!!!!")
 
-      if((Random.nextInt(100) - people.pt.fb_pref) > 0) {
+      if((Random.nextInt(100) - people.pt.fb_pref) < 0) {
 
         print("++++")
 

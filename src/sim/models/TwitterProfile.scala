@@ -26,22 +26,22 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
   // ---------------------------------
   
   def follow(t: TwitterProfile) {
-    println(p+" now follow "+t.p)
+    //println(p+" now follow "+t.p)
     following += t
   }
 
   def unfollow(t : TwitterProfile) {
-    println(p + " stops following "+t.p)
+    //println(p + " stops following "+t.p)
     following -= t
   }
 
   def tweet() {
-    println(p + " Tweets!")
+    //println(p + " Tweets!")
     tweets += new Tweet(this)
   }
   
   def deleteTweet(t: Tweet) {
-    println(p + "deletes his tweet")
+    //println(p + "deletes his tweet")
     tweets -= t
   }
 

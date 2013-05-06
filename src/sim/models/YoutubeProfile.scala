@@ -38,37 +38,37 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
 
   def subscribe(y: YoutubeProfile)
   {
-    println(p + " has subscribed to " + y.p + "(Youtube)")
+    //println(p + " has subscribed to " + y.p + "(Youtube)")
     y.subscriptions += this
   }
 
   def unsuscribe(y: YoutubeProfile)
   {
-    println(p + " unsubscribe from " + y.p + "(Youtube)")
+    //println(p + " unsubscribe from " + y.p + "(Youtube)")
     y.subscriptions -= this
   }
 
   def addVideo()
   {  
-    println(p + " added a video")
+    //println(p + " added a video")
     videos += new YoutubeVideo(this)
   }
 
   def removeVideo(v: YoutubeVideo)
   {
-    println(p + " removed a video")
+    //println(p + " removed a video")
     videos -= v
   }
 
   def commentVideo(v: YoutubeVideo)
   {
-    println(p + " commented " + v.y.p + "'s video")
+    //println(p + " commented " + v.y.p + "'s video")
     v.comments += new YoutubeVideoComment(this, v)
   }
 
   def invite(pp: People)
   {
-    println(p + " invites "+pp+" to join YouTube")
+    //println(p + " invites "+pp+" to join YouTube")
     pp.youtubeInvitations += new YoutubeInvitation(pp)
   }
 }
