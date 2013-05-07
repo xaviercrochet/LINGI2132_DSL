@@ -63,7 +63,6 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
 
 object Scenario1 {
 
-	//var sc: Scenario = _
 	var rules: ListBuffer[Vector[Any]] = ListBuffer()
 
 	def apply(o: Observer) {
