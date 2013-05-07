@@ -48,9 +48,9 @@ object App {
     Scenario1 ( Adults    join ( Youtube  when_receive 2.invitations ))
     Scenario1 ( Students  join ( Youtube  when_receive 2.invitations ))
 
-    //Scenario2 ( Teenagers leave ( Facebook when 5.friends are_on Facebook ))
+    // Scenario2 ( Teenagers leave ( Facebook when 5.friends are_on Facebook ))
 
-    //Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
+    // Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
 
     /* TESTING */
     println("############")
