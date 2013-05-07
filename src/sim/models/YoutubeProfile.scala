@@ -81,7 +81,7 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
 
   def sendYoutubeInvitation(pp: People)
   {
-    //println(p + " invites "+pp+" to join YouTube")
+    println(p + " invites "+pp+" to join YouTube")
     pp.youtubeInvitations += new YoutubeInvitation(pp)
     o.notifyYoutubeInvitation(pp)
   }

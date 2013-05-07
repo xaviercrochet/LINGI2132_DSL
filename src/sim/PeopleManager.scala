@@ -39,14 +39,17 @@ object PeopleManager {
 			if(teen > 0) {
 				val onePeople = new People("MyName"+i, o, m, age, sex, fb , yt, twi, Teenagers)
 				population += onePeople
+				teen -= 1
 			}
 			else if(ma > 0) {
 				val onePeople = new People("MyName"+i, o, m, age, sex, fb, yt, twi, Adults)	
 				population += onePeople
+				ma -= 1
 			}
 			else if(st > 0) {
 				val onePeople = new People("MyName"+i, o, m, age, sex, fb, yt, twi, Students)
 				population += onePeople
+				st -= 1
 			}
 
 			nbFb -= 1

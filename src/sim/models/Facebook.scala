@@ -1,5 +1,7 @@
 package sim.models
 
+import scala.collection.immutable.Vector
+
 object Facebook extends SocialNetwork
 {
   override val name = "facebook"
@@ -9,5 +11,5 @@ object Facebook extends SocialNetwork
 		nbSub += nb
 	}
 
-  def when_receive(i: Double): Vector[Any] = Vector("facebook", i)
+  def when_receive(i: Int): Vector[Any] = Vector("facebook", i)
 }

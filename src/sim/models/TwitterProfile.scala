@@ -62,8 +62,8 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
   }
 
   def sendTwitterInvitation(pp: People) {
-    //println(p + " invited " + pp + "on twitter")
-    p.twitterInvitations += new TwitterInvitation(pp) 
+    println(p + " invited " + pp + " on twitter")
+    pp.twitterInvitations += new TwitterInvitation(pp) 
     o.notifyTwitterInvitation(pp)
   }
 }

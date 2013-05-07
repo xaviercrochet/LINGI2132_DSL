@@ -29,15 +29,26 @@ object App {
         Adults    dont_care_of Facebook
         Teenagers love         Facebook
 
-    Twitter  count 10.people
+    Twitter  count 2.people
 
-        Adults    hate         Twitter
+        Adults    love         Twitter
         Teenagers love         Twitter
+        Students  love         Twitter
 
-    Youtube  count 10.people
+    Youtube  count 2.people
 
-        Teenagers hate         Youtube
-        Students  hate         Youtube
+        Teenagers love         Youtube
+        Students  love         Youtube
+        Adults    love         Youtube
+
+    /* SCENARIOS CONFIGURATION */
+    Scenario1 ( Teenagers join ( Facebook when_receive 2.invitations ))
+    Scenario1 ( Adults    join ( Facebook when_receive 2.invitations ))
+    Scenario1 ( Students  join ( Twitter  when_receive 2.invitations ))
+    Scenario1 ( Adults    join ( Youtube  when_receive 2.invitations ))
+    Scenario1 ( Students  join ( Youtube  when_receive 2.invitations ))
+
+    //Scenario2 adults_join Twitter when_count 10.people
 
     /* TESTING */
     println("############")
@@ -62,11 +73,5 @@ object App {
     println("DSL Twitter : " + Twitter.nbSub)
     println("DSL Youtube : " + Youtube.nbSub)
     println("############")  
-
-    /* SCENARIOS CONFIGURATION */
-    
-    Scenario1 students_join(Facebook when_receive 3.invitations)
-    //Scenario2 adults_join Twitter when_count 10.people
-    
   }
 }

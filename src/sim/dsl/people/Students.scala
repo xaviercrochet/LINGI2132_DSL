@@ -3,6 +3,8 @@ package sim.dsl.people
 import sim.dsl.Population
 import sim.models.SocialNetwork
 
+import scala.collection.immutable.Vector
+
 object Students extends PeopleType {
 
 	var fb_pref_pc = 50
@@ -18,6 +20,8 @@ object Students extends PeopleType {
 		Population.students = (Population.nbPop / 100) * pc
 
 	}
+
+	override def name: String = "students"
 
 	def love (sm: SocialNetwork) {
 
@@ -65,4 +69,6 @@ object Students extends PeopleType {
 			yt_pref_pc = 10
 		}
 	}
+
+	def join(v: Vector[Any]): Vector[Any] = Vector("students", "join") ++ v
 }

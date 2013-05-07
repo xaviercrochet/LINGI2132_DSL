@@ -23,6 +23,6 @@ object Run {
 	    Scenario1(observer)
 
 	    PeopleManager.activatePeople(listOfPeople)
-	    model.simulate(10)
+	    model.simulate(200)
 	}
 }
