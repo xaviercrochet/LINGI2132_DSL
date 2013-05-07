@@ -8,57 +8,99 @@ import scala.collection.mutable.ListBuffer
 
 class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
 
-	override def notifySc(p: People) {
+  override def notifySc(p: People) {
 
-		rules.foreach { rule =>
+  rules.foreach { rule =>
 
-			println("-> " + rule)
+      println("-> " + rule)
 
-			val people_type = rule(0)
-			// val action = rule(1)
-			val network = rule(2)
-			val nbInv = rule(3)
+      val people_type = rule(0)
+      val action = rule(1)
+      val network = rule(2)
+      val network_action = rule(3)
+      val people_action = rule(4)
+      val nb: Int  = rule(5).toString().toInt
 
-			println("-> " + people_type + " vs " + p.pt.name)
+      println("People action : " + people_action)
+      println("Network action : " + network_action)
+      println("-> " + people_type + " vs " + p.pt.name)
 
-			if(people_type == p.pt.name) {
+      if(people_type == p.pt.name) {
 
-				println("-> Good people type")
+        println("-> Good people type")
 
-				println("Facebook ? " + p.facebook)
-				println("Twitter ? " + p.twitter)
-				println("Youtube ? " + p.youtube)
+        println("Facebook ? " + p.facebook)
+        println("Twitter ? " + p.twitter)
+        println("Youtube ? " + p.youtube)
 
-				if(network == "facebook" && !p.facebook) {
+        if(network == "facebook") {
+            if(p.facebook == false) {
+              println("-> facebook detected")
+              if(network_action == "when_receive") {
+                println("-> when receive action")
+                if(people_action == "invitation" && p.facebookInvitations.size == nb) {
+                  if(action == "join") {
+                    p.joinFacebook()
+                    println("-> join !")
+                  }
+                }
+            }
+        }
+          
+          else {
+              if(people_action == "message" && p.facebookProfile.messages.size >= nb) {
+                if(action == "leave") {
+                    p.leaveFacebook()
+                    println("-> left ! (because of " + people_action+")")
+                }
+            }
+            }
+        }
 
-					println("-> facebook detected")
-
-					if(p.facebookInvitations.size == nbInv) {
-  						p.joinFacebook()
-  						println("-> join !")
-					}
-				}
-				else if(network == "twitter" && !p.twitter) {
-
-					println("-> twitter detected")
-
-					if(p.twitterInvitations.size == nbInv) {
-  						p.joinTwitter()
-  						println("-> join !")
-					}
-				}
-				else if(network == "youtube" && !p.youtube) {
-
-					println("-> youtube detected")
-
-					if(p.youtubeInvitations.size == nbInv) {
-  						p.joinYoutube()
-  						println("-> join !")
-					}
-				}
-			}
-		}
-	}
+        else if(network == "twitter") {
+            if(p.twitter == false) {
+                println("-> twitter detected")
+                if(network_action == "when_receive") {
+                  if(people_action == "invitation" && p.twitterInvitations.size == nb) {
+                    if(action == "join") {
+                      p.joinTwitter()
+                      println("-> join !")
+                    }
+                  }
+                }
+            }
+            else {
+                if(people_action == "follower" && p.twitterProfile.followers.size <= nb) {
+                    if(action == "leave") {
+                        p.leaveTwitter()
+                        println("-> left ! (because of "+ people_action+")")
+                    }
+                }
+            }
+        }
+        
+        else if(network == "youtube") {
+            if(p.youtube == false) {
+              println("-> youtube detected")
+              if(network_action == "when_receive") {
+                if(people_action == "invitatioan" && p.youtubeInvitations.size == nb) {
+                  if(action == "join !") {
+                    p.joinYoutube()
+                    println("-> join !")
+                  }
+                }
+              }
+          }
+          else {
+              if(people_action == "subscriber" && p.youtubeProfile.subscribers.size <= nb) {
+                  p.leaveYoutube()
+                  println("-> left ! (because of " + people_action+")")
+              }
+          }
+        }
+      }
+    }
+  }
 }
 
 object Scenario1 {

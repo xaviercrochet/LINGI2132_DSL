@@ -9,8 +9,15 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
 {
   var following = ListBuffer[TwitterProfile]()
   var tweets = ListBuffer[Tweet]()
-
+  var followers = ListBuffer[TwitterProfile]()
   
+  def reset() {
+      p.twitter = false
+      following = ListBuffer[TwitterProfile]()
+      tweets = ListBuffer[Tweet]()
+      followers = ListBuffer[TwitterProfile]()
+  }
+
   def run() {
     tweet()
 
@@ -44,11 +51,13 @@ class TwitterProfile(val m: SimModel, val o:Observer, val p: People)
   def follow(t: TwitterProfile) {
     //println(p+" now follow "+t.p)
     following += t
+    t.followers += this
   }
 
   def unfollow(t : TwitterProfile) {
     //println(p + " stops following "+t.p)
     following -= t
+    t.followers -= this
   }
 
   def tweet() {

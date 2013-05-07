@@ -18,8 +18,7 @@ class Observer()
   
   def notifyFacebookMessage(sender: FacebookProfile, receiver: FacebookProfile, m: String)
   {
-    val r = new Random()
-    if(r.nextInt % 3 == 0)
+    if(Random.nextInt() % 5 == 0)
       receiver.readMessage(receiver, m)
   }
 

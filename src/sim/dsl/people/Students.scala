@@ -71,4 +71,5 @@ object Students extends PeopleType {
 	}
 
 	def join(v: Vector[Any]): Vector[Any] = Vector("students", "join") ++ v
+    def leave(v: Vector[Any]): Vector[Any] = Vector("students", "leave") ++v
 }

@@ -11,5 +11,5 @@ object Youtube extends SocialNetwork
 		nbSub += nb
 	}
 
-	def when_receive(i: Int): Vector[Any] = Vector("youtube", i)
+	def when_receive(v: Vector[Any]): Vector[Any] = Vector("youtube", "when_receive") ++v
 }

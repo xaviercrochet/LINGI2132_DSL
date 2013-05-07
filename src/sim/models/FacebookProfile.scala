@@ -9,10 +9,19 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   var friends = ListBuffer[FacebookProfile]()
   var invitations = ListBuffer[FacebookProfile]()
   var posts = ListBuffer[FacebookPost]()
-  var message = ListBuffer[String]()
+  var messages = ListBuffer[String]()
   var pictures = ListBuffer[FacebookPicture]()
 
   // Facebook profile's life
+    def reset() {
+        p.facebook = false
+        friends = ListBuffer[FacebookProfile]()
+        invitations = ListBuffer[FacebookProfile]()
+        posts = ListBuffer[FacebookPost]()
+        messages = ListBuffer[String]()
+        pictures = ListBuffer[FacebookPicture]()
+    }
+
   def run() {
     for (people <- p.circle) {
 
@@ -28,7 +37,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
     }
     
     if(Random.nextInt() %5 == 0 && friends.length > 0)
-      sendMessage(friends(Random.nextInt(friends.length)), "Message"+Random.nextInt(friends.length))
+      sendMessage(friends(Random.nextInt(friends.length)), "Message"+Random.nextInt())
 
     post(Random.nextString(20))
     uploadPicture()
@@ -66,14 +75,15 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   
   def sendMessage(f: FacebookProfile, m: String)
   {
-    //println(p.name + " sent " + m + " to " + f.p.name)
-    f.readMessage(f, m)
+    f.messages += m
     o.notifyFacebookMessage(this, f, m)
   }
   
   def readMessage(f: FacebookProfile, m:String)
   {  
-    //println(p.name + " read " + m + " from " + f.p.name)
+    messages -= m
+    if(Random.nextInt() %5 == 0)
+        sendMessage(f, "Responses "+Random.nextInt())
   }
   
   def sendFacebookInvitation(pp: People)

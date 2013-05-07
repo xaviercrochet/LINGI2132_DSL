@@ -7,7 +7,16 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
 {
   var subscriptions = ListBuffer[YoutubeProfile]()
   var videos = ListBuffer[YoutubeVideo]()
+  var subscribers = ListBuffer[YoutubeProfile]()
 
+  def reset()
+  {
+    p.youtube = false
+    subscribers = ListBuffer[YoutubeProfile]()
+    subscriptions = ListBuffer[YoutubeProfile]()
+    videos = ListBuffer[YoutubeVideo]()
+  }
+  
   def run() {
 
     addVideo()
@@ -52,13 +61,16 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   def subscribe(y: YoutubeProfile)
   {
     //println(p + " has subscribed to " + y.p + "(Youtube)")
-    y.subscriptions += this
+    subscriptions += y
+    y.subscribers += this
+
   }
 
   def unsuscribe(y: YoutubeProfile)
   {
     //println(p + " unsubscribe from " + y.p + "(Youtube)")
-    y.subscriptions -= this
+    subscriptions -= y
+    y.subscribers -= this
   }
 
   def addVideo()

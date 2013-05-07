@@ -12,5 +12,5 @@ object Twitter extends SocialNetwork
 		nbSub += nb
 	}
 
-	def when_receive(i: Int): Vector[Any] = Vector("twitter", i)
+	def when_receive(v: Vector[Any]): Vector[Any] = Vector("twitter", "when_receive") ++v
 }

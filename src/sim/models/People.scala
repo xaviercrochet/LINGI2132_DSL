@@ -42,7 +42,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
   
   def leaveFacebook() {
     println(name + " has left Facebook")
-    facebook = false
+    facebookProfile.reset()
     o.notifyFacebookLeave()
   }
 
@@ -55,7 +55,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
 
   def leaveTwitter() {
     println(name + " has left Twitter")
-    twitter = false
+    twitterProfile.reset()
     o.notifyTwitterLeave()
   }
 
@@ -68,7 +68,7 @@ class People(val name: String, val o: Observer, val m: SimModel, var age: Int, v
 
   def leaveYoutube() {
     println(name + " has left Youtube")
-    youtube = false
+    youtubeProfile.reset()
     o.notifyYoutubeLeave()
   }
 

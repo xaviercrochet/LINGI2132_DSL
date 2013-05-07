@@ -47,6 +47,10 @@ object App {
     Scenario1 ( Students  join ( Twitter  when_receive 2.invitations ))
     Scenario1 ( Adults    join ( Youtube  when_receive 2.invitations ))
     Scenario1 ( Students  join ( Youtube  when_receive 2.invitations ))
+    Scenario1 ( Teenagers leave ( Youtube when_receive 2.subscribers ))
+    Scenario1 ( Teenagers leave ( Facebook when_receive 2.messages ))
+    Scenario1 (Teenagers leave (Twitter when_receive 2.followers))
+
 
     // Scenario2 ( Teenagers leave ( Facebook when 5.friends are_on Facebook ))
 

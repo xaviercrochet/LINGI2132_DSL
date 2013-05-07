@@ -8,5 +8,11 @@ case class Scale(val amount: Double) {
 
 	def people = amount
 
-	def invitations = amount.toInt
+	def invitations : Vector[Any] = Vector("invitation", amount.toInt)
+  
+  def subscribers : Vector[Any] = Vector("subscriber", amount.toInt)
+
+  def followers : Vector[Any] = Vector("follower", amount.toInt)
+
+  def messages : Vector[Any] = Vector("message", amount.toInt)
 }
