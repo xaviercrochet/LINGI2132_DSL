@@ -13,5 +13,5 @@ object Facebook extends SocialNetwork
 
   def when_receive(i: Int): Vector[Any] = Vector("facebook", i)
 
-  
+  def when(v: Vector[Any]): Vector[Any] = Vector("facebook") ++ v
 }

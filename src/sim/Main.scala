@@ -50,7 +50,7 @@ object App {
 
     // Scenario1 ( Students  leave ( Facebook when_receive_more_than 5.messages ))
 
-    Scenario2 ( Teenagers leave ( Facebook when 5.adults are_on Facebook )))
+    //Scenario2 ( Teenagers leave ( Facebook when 5.adults are_on Facebook )))
 
     // Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
 
@@ -78,6 +78,6 @@ object App {
     println("DSL Youtube : " + Youtube.nbSub)
     println("############") 
 
-    println("#-> " + (Teenagers are_on Facebook))
+    println(Teenagers join (Facebook when 5.adults are_on Facebook))
   }
 }

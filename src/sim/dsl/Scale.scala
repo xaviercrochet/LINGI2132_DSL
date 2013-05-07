@@ -1,5 +1,7 @@
 package sim.dsl
 
+import scala.collection.immutable.Vector
+
 case class Scale(val amount: Double) {
 	
 	def thousands_of_people = amount * 1000
@@ -11,4 +13,6 @@ case class Scale(val amount: Double) {
 	def invitations = amount.toInt
 
 	def friends = amount
+
+	def adults: Vector[Any] = Vector("adults", amount.toInt)
 }
