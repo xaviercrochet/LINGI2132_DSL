@@ -7,7 +7,7 @@ import scala.collection.mutable.ListBuffer
 
 object Run {
 	
-	def the_simulation {
+	def the_simulation_for(i: Int) {
 
 		val model = new SimModel()
 	    val observer = new Observer()
@@ -23,6 +23,6 @@ object Run {
 	    Scenario1(observer)
 
 	    PeopleManager.activatePeople(listOfPeople)
-	    model.simulate(200)
+	    model.simulate(i)
 	}
 }
