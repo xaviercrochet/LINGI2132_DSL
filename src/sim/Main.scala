@@ -42,13 +42,15 @@ object App {
         Adults    love         Youtube
 
     /* SCENARIOS CONFIGURATION */
-    Scenario1 ( Teenagers join ( Facebook when_receive 2.invitations ))
-    Scenario1 ( Adults    join ( Facebook when_receive 2.invitations ))
-    Scenario1 ( Students  join ( Twitter  when_receive 2.invitations ))
-    Scenario1 ( Adults    join ( Youtube  when_receive 2.invitations ))
-    Scenario1 ( Students  join ( Youtube  when_receive 2.invitations ))
+    Scenario1 ( Teenagers join  ( Facebook when_receive 2.invitations ))
+    Scenario1 ( Adults    join  ( Facebook when_receive 2.invitations ))
+    Scenario1 ( Students  join  ( Twitter  when_receive 2.invitations ))
+    Scenario1 ( Adults    join  ( Youtube  when_receive 2.invitations ))
+    Scenario1 ( Students  join  ( Youtube  when_receive 2.invitations ))
 
-    // Scenario2 ( Teenagers leave ( Facebook when 5.friends are_on Facebook ))
+    // Scenario1 ( Students  leave ( Facebook when_receive_more_than 5.messages ))
+
+    Scenario2 ( Teenagers leave ( Facebook when 5.adults are_on Facebook )))
 
     // Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
 
@@ -74,6 +76,8 @@ object App {
     println("DSL Facebook : " + Facebook.nbSub)
     println("DSL Twitter : " + Twitter.nbSub)
     println("DSL Youtube : " + Youtube.nbSub)
-    println("############")  
+    println("############") 
+
+    println("#-> " + (Teenagers are_on Facebook))
   }
 }
