@@ -10,6 +10,8 @@ object Preamble {
 
 	implicit def double2Percent(i: Int) = PopulationHelper(i)
 
+	implicit def int2Duration(i: Int) = Duration(i)
+
 	implicit def vector2LinkBuilder(v: Vector[Any]) = LinkBuilder(v)
 
 }

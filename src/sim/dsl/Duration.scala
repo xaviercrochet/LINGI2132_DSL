@@ -1,8 +1,8 @@
 package sim.dsl
 
-case class Duration(val amount: Double) {
+case class Duration(val amount: Int) {
 
-	def weeks = amount * 7
+	def weeks = amount
 
 	def months = amount * 31
 

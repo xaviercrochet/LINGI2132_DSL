@@ -68,7 +68,7 @@ object App {
     println("############")
     
     /* RUN THE SIMULATION ! */
-    Run the_simulation
+    Run the_simulation_for 30.weeks
     
     println("############")
     println("DSL Population : " + Population.nbPop)
