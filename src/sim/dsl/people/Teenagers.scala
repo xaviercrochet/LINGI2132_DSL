@@ -7,9 +7,9 @@ import scala.collection.immutable.Vector
 
 object Teenagers extends PeopleType {
 	
-	var fb_pref_pc = 50
-	var yt_pref_pc = 50
-	var twi_pref_pc = 50
+	var fb_pref_pc = 20
+	var yt_pref_pc = 20
+	var twi_pref_pc = 20
 
 	override def fb_pref = fb_pref_pc
 	override def twi_pref = twi_pref_pc
