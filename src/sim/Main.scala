@@ -15,7 +15,7 @@ object App {
     /////////////////////////////////////
 
     /* POPULATION CONFIGURATION */
-    Population is_composed_by 20.people
+    Population is_composed_by 50.people
             
         Students  represent 25.percent
         Adults    represent 50.percent
@@ -47,9 +47,15 @@ object App {
     Scenario1 ( Students  join ( Twitter  when_receive 2.invitations ))
     Scenario1 ( Adults    join ( Youtube  when_receive 2.invitations ))
     Scenario1 ( Students  join ( Youtube  when_receive 2.invitations ))
-    Scenario1 ( Teenagers leave ( Youtube when_receive 2.subscribers ))
-    Scenario1 ( Teenagers leave ( Facebook when_receive 2.messages ))
-    Scenario1 (Teenagers leave (Twitter when_receive 2.followers))
+    Scenario1 ( Teenagers leave ( Youtube when_more_than 1.subscribers ))
+    Scenario1 ( Teenagers leave ( Facebook when_receive 1.messages ))
+    Scenario1 ( Teenagers leave (Twitter when_more_than 1.followers))
+    Scenario1 ( Adults leave ( Youtube when_more_than 1.subscribers ))
+    Scenario1 ( Adults leave ( Twitter when_more_than 1.followers))
+    Scenario1 ( Adults leave ( Facebook when_receive 1.messages))
+    Scenario1 ( Students leave ( Youtube when_more_than 1.subscribers))
+    Scenario1 ( Students leave ( Twitter when_more_than 1.followers))
+
 
     Scenario2 ( Teenagers join  ( Facebook when 5.adults are_on Facebook ))
 

@@ -48,6 +48,7 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
         }
           
           else {
+              println("TRUE")
               if(people_action == "message" && p.facebookProfile.messages.size >= nb) {
                 if(action == "leave") {
                     p.leaveFacebook()
@@ -70,10 +71,12 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
                 }
             }
             else {
-                if(people_action == "follower" && p.twitterProfile.followers.size <= nb) {
-                    if(action == "leave") {
-                        p.leaveTwitter()
-                        println("-> left ! (because of "+ people_action+")")
+                if(network_action == "when_more_than") {
+                    if(people_action == "follower" && p.twitterProfile.followers.size >= nb) {
+                        if(action == "leave") {
+                            p.leaveTwitter()
+                            println("-> left ! (because of "+ people_action+")")
+                        }
                     }
                 }
             }
@@ -83,7 +86,7 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
             if(p.youtube == false) {
               println("-> youtube detected")
               if(network_action == "when_receive") {
-                if(people_action == "invitatioan" && p.youtubeInvitations.size == nb) {
+                if(people_action == "invitation" && p.youtubeInvitations.size == nb) {
                   if(action == "join !") {
                     p.joinYoutube()
                     println("-> join !")
@@ -92,10 +95,14 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
               }
           }
           else {
-              if(people_action == "subscriber" && p.youtubeProfile.subscribers.size <= nb) {
-                  p.leaveYoutube()
-                  println("-> left ! (because of " + people_action+")")
-              }
+              if(network_action == "when_more_than") {
+                if(people_action == "subscriber" && p.youtubeProfile.subscribers.size >= nb) {
+                    if(action == "leave") {
+                     p.leaveYoutube()
+                     println("-> left ! (because of " + people_action+")")
+                 }
+                }
+            }
           }
         }
       }
