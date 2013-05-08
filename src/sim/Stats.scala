@@ -4,6 +4,7 @@ import sim.models._
 
 //import scala.collection.mutable.ListBuffer
 import scala.collection.immutable.TreeMap
+import scala.collection.immutable.Map
 
 object Stats {
 	
