@@ -41,6 +41,7 @@ object App {
         Students  love         Youtube
         Adults    love         Youtube
 
+
     /* SCENARIOS CONFIGURATION */
     Scenario1 ( Teenagers join  ( Facebook when_receive   2.invitations ))
     Scenario1 ( Adults    join  ( Facebook when_receive   2.invitations ))
