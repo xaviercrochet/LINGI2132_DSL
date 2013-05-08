@@ -87,7 +87,7 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
               println("-> youtube detected")
               if(network_action == "when_receive") {
                 if(people_action == "invitation" && p.youtubeInvitations.size == nb) {
-                  if(action == "join !") {
+                  if(action == "join") {
                     p.joinYoutube()
                     println("-> join !")
                   }
