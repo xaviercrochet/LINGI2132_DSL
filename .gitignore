@@ -12,3 +12,5 @@ doc/report.aux
 doc/*.log
 doc/*.pdf
 doc/*.aux
+
+.cache
