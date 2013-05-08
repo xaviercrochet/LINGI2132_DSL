@@ -8,7 +8,7 @@ payroll/bin/
 *.log
 
 doc/report.pdf
-
-doc/report.synctex.gz
-
 doc/report.aux
+doc/*.log
+doc/*.pdf
+doc/*.aux
