@@ -36,7 +36,7 @@ class Scenario2(rules: ListBuffer[Vector[Any]]) extends Scenario {
 			val target_network = rule(2).toString
 			val action_network = rule(3).toString
 			val target_people = rule(4).toString
-			val nb_people = rule(5).toString.toInt
+            val nb_people = rule(5).toString.toInt
 
 			// Check if the rule concern the people
 			if(people_type == p.pt.name && do_action(p, target_people, target_network, nb_people)) {

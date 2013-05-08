@@ -35,26 +35,32 @@ class Scenario1(rules: ListBuffer[Vector[Any]]) extends Scenario {
 
         if(network == "facebook") {
             if(p.facebook == false) {
-              println("-> facebook detected")
-              if(network_action == "when_receive") {
+                println("-> facebook detected")
+                if(network_action == "when_receive") {
                 println("-> when receive action")
-                if(people_action == "invitation" && p.facebookInvitations.size == nb) {
-                  if(action == "join") {
-                    p.joinFacebook()
-                    println("-> join !")
-                  }
+                    if(people_action == "invitation" && p.facebookInvitations.size == nb) {
+                        if(action == "join") {
+                            p.joinFacebook()
+                            println("-> join !")
+                        }
+                    }
                 }
             }
-        }
           
-          else {
-              println("TRUE")
-              if(people_action == "message" && p.facebookProfile.messages.size >= nb) {
-                if(action == "leave") {
-                    p.leaveFacebook()
-                    println("-> left ! (because of " + people_action+")")
+            else {
+                if(people_action == "message" && p.facebookProfile.messages.size >= nb) {
+                    if(action == "leave") {
+                        p.leaveFacebook()
+                        println("-> left ! (because of " + people_action+")")
+                    }
+        
                 }
-            }
+                if(people_action == "friends" && p.facebookProfile.friends.size >= nb) {
+                    if(action == "leave") {
+                        p.leaveFacebook()
+                        println("-> left ! (because of " + people_action+")")
+                    }
+                }
             }
         }
 
