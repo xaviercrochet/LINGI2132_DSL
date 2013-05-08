@@ -51,11 +51,7 @@ object App {
     Scenario1 ( Teenagers leave ( Facebook when_receive 2.messages ))
     Scenario1 (Teenagers leave (Twitter when_receive 2.followers))
 
-    Scenario2 ( Teenagers join  ( Facebook when 5.adults are_on Facebook ))
-
-    // Scenario1 ( Students  leave ( Facebook when_receive_more_than 5.messages ))
-
-    //Scenario2 ( Teenagers leave ( Facebook when 5.adults are_on Facebook )))
+    Scenario2 ( Teenagers join  ( Facebook when 5.adults are_on Youtube ))
 
     // Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
 
@@ -71,7 +67,7 @@ object App {
     println("############")
     
     /* RUN THE SIMULATION ! */
-    Run the_simulation_for 30.weeks
+    Run the_simulation_for 50.weeks
     
     println("############")
     println("DSL Population : " + Population.nbPop)
