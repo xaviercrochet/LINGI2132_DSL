@@ -14,4 +14,5 @@ object Youtube extends SocialNetwork
 	def when_receive(v: Vector[Any]): Vector[Any] = Vector("youtube", "when_receive") ++v
     def when_more_than(v: Vector[Any]): Vector[Any] = Vector("youtube", "when_more_than") ++v
 	def when(v: Vector[Any]): Vector[Any] = Vector("facebook") ++ v
+    def when_less_than(v: Vector[Any]]): Vector[Any] = Vector("youtube", "when_less_than") ++v
 }
