@@ -5,5 +5,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="bin/sim/jcommon-1.0.17.jar"/>
+	<classpathentry kind="lib" path="bin/sim/jfreechart-1.0.14.jar"/>
 	<classpathentry kind="output" path="payroll/bin"/>
 </classpath>

@@ -29,7 +29,7 @@ object App {
         Adults    dont_care_of Facebook
         Teenagers love         Facebook
 
-    Twitter  count 2.people
+    Twitter  count 4.people
 
         Adults    love         Twitter
         Teenagers love         Twitter
@@ -43,26 +43,23 @@ object App {
 
 
     /* SCENARIOS CONFIGURATION */
-    Scenario1 ( Teenagers join  ( Facebook when_receive   2.invitations ))
+    Scenario1 ( Teenagers join  ( Twitter when_receive   2.invitations ))
     Scenario1 ( Adults    join  ( Facebook when_receive   2.invitations ))
-    Scenario1 ( Students  join  ( Twitter  when_receive   2.invitations ))
-    Scenario1 ( Adults    join  ( Youtube  when_receive   2.invitations ))
-    Scenario1 ( Students  join  ( Youtube  when_receive   2.invitations ))
-    Scenario1 ( Teenagers leave ( Youtube  when_more_than 1.subscribers ))
-    Scenario1 ( Teenagers leave ( Facebook when_receive   1.messages    ))
+    //Scenario1 ( Students  join  ( Twitter  when_receive   2.invitations ))
+    //Scenario1 ( Adults    join  ( Youtube  when_receive   2.invitations ))
+    //Scenario1 ( Students  join  ( Youtube  when_receive   2.invitations ))
+    //Scenario1 ( Teenagers leave ( Youtube  when_more_than 1.subscribers ))
+    //Scenario1 ( Teenagers leave ( Facebook when_receive   1.messages    ))
     Scenario1 ( Teenagers leave ( Twitter  when_more_than 1.followers   ))
-    Scenario1 ( Adults    leave ( Youtube  when_more_than 1.subscribers ))
-    Scenario1 ( Adults    leave ( Twitter  when_more_than 1.followers   ))
-    Scenario1 ( Adults    leave ( Facebook when_receive   1.messages    ))
-    Scenario1 ( Students  leave ( Youtube  when_more_than 1.subscribers ))
-    Scenario1 ( Students  leave ( Twitter  when_more_than 1.followers   ))
-    Scenario1 ( Adults leave ( Facebook when_more_than 5.friends ))
-    Scenario2 ( Teenagers join  ( Facebook when 5.adults are_on Youtube ))
-    Scenario1 ( Teenagers leave ( Youtube when_more_than 10.feed))
-    Scenario1 ( Adults leave ( Facebook when_more_than 10.feed))
-    Scenario1 ( Students leave ( Twitter when_more_than  5.feed))
 
+    //Scenario1 ( Adults    leave ( Youtube  when_more_than 1.subscribers ))
+    //Scenario1 ( Adults    leave ( Twitter  when_more_than 1.followers   ))
+    //Scenario1 ( Adults    leave ( Facebook when_receive   1.messages    ))
+    //Scenario1 ( Students  leave ( Youtube  when_more_than 1.subscribers ))
+    //Scenario1 ( Students  leave ( Twitter  when_more_than 1.followers   ))
+    //Scenario1 ( Adults leave ( Facebook when_more_than 5.friends ))
 
+    //Scenario2 ( Teenagers leave  ( Facebook when 5.adults are_on Youtube ))
     // Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
 
     /* TESTING */
@@ -88,5 +85,9 @@ object App {
     println("DSL Twitter : " + Twitter.nbSub)
     println("DSL Youtube : " + Youtube.nbSub)
     println("############") 
+
+    // Stats.show
+    
+    Show chart
   }
 }

@@ -1,4 +1,5 @@
 package sim
+
 import scala.collection.mutable.PriorityQueue
 
 class SimModel {
@@ -15,6 +16,8 @@ class SimModel {
 	    if(currentTime <= horizon) {
 	      println("Time : " + currentTime)
 	      e.process()
+
+	      Stats.record(currentTime)
 	    }
 	    else {
 	      currentTime = horizon
