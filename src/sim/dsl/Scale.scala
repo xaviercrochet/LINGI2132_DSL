@@ -21,4 +21,8 @@ case class Scale(val amount: Double) {
     def friends : Vector[Any] = Vector("friends", amount.toInt)
 
     def adults: Vector[Any] = Vector("adults", amount.toInt)
+    
+    def feed: Vector[Any] = Vector("feed", amount.toInt)
+
+    def tweet: Vector[Any] = Vector("tweet", amount.toInt)
 }

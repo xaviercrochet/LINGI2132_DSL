@@ -8,6 +8,7 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   var subscriptions = ListBuffer[YoutubeProfile]()
   var videos = ListBuffer[YoutubeVideo]()
   var subscribers = ListBuffer[YoutubeProfile]()
+  var feed = 0  
 
   def reset()
   {
@@ -15,12 +16,11 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
     subscribers = ListBuffer[YoutubeProfile]()
     subscriptions = ListBuffer[YoutubeProfile]()
     videos = ListBuffer[YoutubeVideo]()
-  }
+    }
   
   def run() {
 
     addVideo()
-
     if(((Random.nextInt(100) - p.pt.yt_pref) < 0) && videos.length > 0) {
       // remove a random video
       videos -= videos(Random.nextInt(videos.length ))
@@ -77,18 +77,24 @@ class YoutubeProfile(val m: SimModel, val o: Observer, val p: People)
   {  
     //println(p + " added a video")
     videos += new YoutubeVideo(this)
+    for(y <- subscribers)
+        y.feed += 1
   }
 
   def removeVideo(v: YoutubeVideo)
   {
     //println(p + " removed a video")
     videos -= v
+    for(y <- subscribers)
+        y.feed -= 1
   }
 
   def commentVideo(v: YoutubeVideo)
   {
     //println(p + " commented " + v.y.p + "'s video")
     v.comments += new YoutubeVideoComment(this, v)
+    for(y <- subscribers)
+        y.feed += 1
   }
 
   def sendYoutubeInvitation(pp: People)

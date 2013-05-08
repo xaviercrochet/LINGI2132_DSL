@@ -11,9 +11,10 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   var posts = ListBuffer[FacebookPost]()
   var messages = ListBuffer[String]()
   var pictures = ListBuffer[FacebookPicture]()
-
+    var feed = 0
   // Facebook profile's life
     def reset() {
+        feed = 0
         p.facebook = false
         friends = ListBuffer[FacebookProfile]()
         invitations = ListBuffer[FacebookProfile]()
@@ -52,6 +53,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
     println(p.name + " asks " + f.p.name + " to become his friend")
     f.invitations += f
     o.notifyFacebookInvitation(this, f)
+    f.feed += 1
   }
 
   def acceptFriend(f: FacebookProfile)
@@ -77,6 +79,7 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
   {
     f.messages += m
     o.notifyFacebookMessage(this, f, m)
+    f.feed += 1
   }
   
   def readMessage(f: FacebookProfile, m:String)
@@ -98,12 +101,16 @@ class FacebookProfile(m: SimModel, o: Observer, val p: People) {
     println(p.name + " add a new post")
     val post = new FacebookPost(this, s)
     posts += post
-    o.notifyFacebookPost(this, post, friends) 
+    o.notifyFacebookPost(this, post, friends)
+    for (f <- friends)
+        f.feed += 1
   }
 
   def uploadPicture()
   {
     println(p.name + " upload a new picture")
     pictures += new FacebookPicture(this)
+    for (f <- friends)
+        f.feed += 1
   }
 }
