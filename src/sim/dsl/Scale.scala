@@ -10,13 +10,13 @@ case class Scale(val amount: Double) {
 
     def people = amount
 
-    def invitations : Vector[Any] = Vector("invitation", amount.toInt)
+	def invitations : Vector[Any] = Vector("invitation", amount.toInt)
+  
+  	def subscribers : Vector[Any] = Vector("subscriber", amount.toInt)
 
-    def subscribers : Vector[Any] = Vector("subscriber", amount.toInt)
+ 	def followers : Vector[Any] = Vector("follower", amount.toInt)
 
-    def followers : Vector[Any] = Vector("follower", amount.toInt)
-
-    def messages : Vector[Any] = Vector("message", amount.toInt)
+  	def messages : Vector[Any] = Vector("message", amount.toInt)
 
     def friends : Vector[Any] = Vector("friends", amount.toInt)
 
@@ -25,4 +25,8 @@ case class Scale(val amount: Double) {
     def feed: Vector[Any] = Vector("feed", amount.toInt)
 
     def tweet: Vector[Any] = Vector("tweet", amount.toInt)
+
+	def students: Vector[Any] = Vector("students", amount.toInt)
+
+	def teenagers: Vector[Any] = Vector("teenagers", amount.toInt)
 }

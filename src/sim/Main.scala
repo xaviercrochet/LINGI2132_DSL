@@ -61,6 +61,8 @@ object App {
     Scenario1 ( Teenagers leave ( Youtube when_more_than 10.feed))
     Scenario1 ( Adults leave ( Facebook when_more_than 10.feed))
     Scenario1 ( Students leave ( Twitter when_more_than  5.feed))
+
+
     // Scenario3 ( Students switch_from ( Facebook to ( Twitter when 5.friends_switch )))
 
     /* TESTING */
