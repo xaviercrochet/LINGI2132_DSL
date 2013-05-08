@@ -13,6 +13,7 @@ object Run {
 	    val observer = new Observer()
 
 	    var listOfPeople: ListBuffer[People] = PeopleManager.createPeople(model, observer)
+	    
 	    println(listOfPeople)
 
 	    listOfPeople.foreach { one: People => 
@@ -21,6 +22,7 @@ object Run {
 
 	    // Scenario
 	    Scenario1(observer)
+	    Scenario2(observer)
 
 	    PeopleManager.activatePeople(listOfPeople)
 	    model.simulate(i)
